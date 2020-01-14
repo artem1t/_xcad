@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad.Diagnostics
+namespace Xarial.XCad.Utils.Diagnostics
 {
     public class TraceLogger : ILogger
     {

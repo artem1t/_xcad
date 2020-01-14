@@ -8,7 +8,7 @@
 using System;
 using System.Linq;
 
-namespace Xarial.XCad.Reflection
+namespace Xarial.XCad.Utils.Reflection
 {
     /// <summary>
     /// Provides extension classes for the <see cref="Enum"/> enumerator

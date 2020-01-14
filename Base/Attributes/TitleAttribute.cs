@@ -7,7 +7,7 @@
 
 using System;
 using System.ComponentModel;
-using Xarial.XCad.Reflection;
+using Xarial.XCad.Utils.Reflection;
 
 namespace Xarial.XCad.Attributes
 {

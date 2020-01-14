@@ -14,7 +14,7 @@ using Xarial.XCad.Attributes;
 using Xarial.XCad.Delegates;
 using Xarial.XCad.Enums;
 using Xarial.XCad.Extensions;
-using Xarial.XCad.Reflection;
+using Xarial.XCad.Utils.Reflection;
 using Xarial.XCad.Structures;
 
 namespace Xarial.XCad

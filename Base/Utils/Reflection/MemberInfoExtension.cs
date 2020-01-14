@@ -9,7 +9,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace Xarial.XCad.Reflection
+namespace Xarial.XCad.Utils.Reflection
 {
     /// <summary>
     /// Provides extension methods for the <see cref="MemberInfo"/>
