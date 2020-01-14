@@ -9,10 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Delegates
 {
-    public interface IXApplication
-    {
-        IXDocumentCollection Documents { get; }
-    }
+    public delegate void DocumentCreateDelegate(IXDocument doc);
 }

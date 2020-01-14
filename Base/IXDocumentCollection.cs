@@ -5,14 +5,18 @@
 //License: https://github.com/xarial/xcad/blob/master/LICENSE
 //*********************************************************************
 
-using System;
 using System.Collections.Generic;
-using System.Text;
+using Xarial.XCad.Delegates;
+using Xarial.XCad.Structures;
 
 namespace Xarial.XCad
-{
-    public interface IXApplication
+{   
+    public interface IXDocumentCollection : IEnumerable<IXDocument>
     {
-        IXDocumentCollection Documents { get; }
+        event DocumentCreateDelegate DocumentCreated;
+
+        IXDocument Active { get; }
+        IXDocument Open(DocumentOpenArgs args);
+        int Count { get; }
     }
 }

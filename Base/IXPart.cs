@@ -5,14 +5,9 @@
 //License: https://github.com/xarial/xcad/blob/master/LICENSE
 //*********************************************************************
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Xarial.XCad
 {
-    public interface IXApplication
+    public interface IXPart : IXDocument 
     {
-        IXDocumentCollection Documents { get; }
     }
 }

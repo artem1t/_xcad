@@ -9,10 +9,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Structures
 {
-    public interface IXApplication
+    public class DocumentOpenArgs
     {
-        IXDocumentCollection Documents { get; }
+        public string Path { get; set; }
+        public bool ReadOnly { get; set; }
+        public bool ViewOnly { get; set; }
     }
 }

@@ -24,21 +24,23 @@ namespace Xarial.XCad.Structures
         {
             var curSpace = WorkspaceTypes_e.NoDocuments;
 
-            if (app.ActiveDocument == null)
+            var activeDoc = app.Documents.Active;
+
+            if (activeDoc == null)
             {
                 curSpace = WorkspaceTypes_e.NoDocuments;
             }
             else
             {
-                if (app.ActiveDocument is IXPart)
+                if (activeDoc is IXPart)
                 {
                     curSpace = WorkspaceTypes_e.Part;
                 }
-                else if (app.ActiveDocument is IXAssembly)
+                else if (activeDoc is IXAssembly)
                 {
                     curSpace = WorkspaceTypes_e.Assembly;
                 }
-                else if (app.ActiveDocument is IXDrawing)
+                else if (activeDoc is IXDrawing)
                 {
                     curSpace = WorkspaceTypes_e.Drawing;
                 }

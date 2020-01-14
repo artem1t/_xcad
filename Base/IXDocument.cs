@@ -8,22 +8,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xarial.XCad.Delegates;
 
 namespace Xarial.XCad
 {
     public interface IXDocument
     {
-    }
-
-    public interface IXPart : IXDocument 
-    {
-    }
-
-    public interface IXAssembly : IXDocument
-    {
-    }
-
-    public interface IXDrawing : IXDocument
-    {
+        event DocumentCloseDelegate Closing;
+        string Title { get; }
+        string Path { get; }
+        void Close();
     }
 }
