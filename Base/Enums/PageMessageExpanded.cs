@@ -8,18 +8,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Enums
 {
-    public interface IXExtension
+    public enum PageMessageExpanded
     {
-        bool OnConnect();
-        bool OnDisconnect();
-
-        IXApplication Application { get; }
-        IXCommandManager CommandManager { get; }
-
-        IXNativePage<TData> CreatePage<TData>();
+        MaintainExpandState,
+        Expand,
+        Compress
     }
 }

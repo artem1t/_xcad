@@ -8,18 +8,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Enums
 {
-    public interface IXExtension
+    public enum PageCloseReasons_e
     {
-        bool OnConnect();
-        bool OnDisconnect();
-
-        IXApplication Application { get; }
-        IXCommandManager CommandManager { get; }
-
-        IXNativePage<TData> CreatePage<TData>();
+        Okay,
+        Cancel,
+        Unknown,
+        Apply
     }
 }

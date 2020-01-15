@@ -8,18 +8,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
 
 namespace Xarial.XCad
 {
-    public interface IXExtension
+    public interface IXSelObject
     {
-        bool OnConnect();
-        bool OnDisconnect();
-
-        IXApplication Application { get; }
-        IXCommandManager CommandManager { get; }
-
-        IXNativePage<TData> CreatePage<TData>();
+        void Select(bool append);
     }
 }

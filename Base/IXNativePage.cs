@@ -8,10 +8,27 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xarial.XCad.Delegates;
 
 namespace Xarial.XCad
 {
-    public interface IXNativePage
+    public interface IXNativePage<TDataModel>
     {
+        /// <summary>
+        /// Fired when the data is changed (i.e. text box changed, combobox selection changed etc.)
+        /// </summary>
+        event PageDataChangedDelegate DataChanged;
+
+        /// <summary>
+        /// Fired when property page is about to be closed. Use the argument to provide additional instructions
+        /// </summary>
+        event PageClosingDelegate Closing;
+
+        /// <summary>
+        /// Fired when property manager page is closed
+        /// </summary>
+        event PageClosedDelegate Closed;
+
+        void Show(TDataModel model);
     }
 }

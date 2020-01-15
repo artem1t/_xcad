@@ -8,18 +8,21 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Enums
 {
-    public interface IXExtension
+    public enum NumberBoxUnitType_e
     {
-        bool OnConnect();
-        bool OnDisconnect();
-
-        IXApplication Application { get; }
-        IXCommandManager CommandManager { get; }
-
-        IXNativePage<TData> CreatePage<TData>();
+        UnitlessInteger = 1,
+        UnitlessDouble,
+        Length,
+        Angle,
+        Density,
+        Stress,
+        Force,
+        Gravity,
+        Time,
+        Frequency,
+        Percent
     }
 }

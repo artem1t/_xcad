@@ -6,6 +6,8 @@
 //*********************************************************************
 
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace Xarial.XCad.Utils.Reflection
@@ -15,6 +17,39 @@ namespace Xarial.XCad.Utils.Reflection
     /// </summary>
     public static class EnumExtension
     {
+        public static Dictionary<Enum, string> GetEnumFields(Type enumType)
+        {
+            if (!enumType.IsEnum)
+            {
+                throw new InvalidCastException($"{enumType.FullName} must be an enum");
+            }
+
+            var enumValues = new List<Enum>();
+
+            foreach (Enum en in Enum.GetValues(enumType)) 
+            {
+                enumValues.Add(en);
+            }
+            
+            var values = enumValues.ToDictionary(e => e,
+                e =>
+                {
+                    var text = "";
+
+                    e.TryGetAttribute<DisplayNameAttribute>(a => text = a.DisplayName);
+
+                    if (string.IsNullOrEmpty(text))
+                    {
+                        text = e.ToString();
+                    }
+
+                    return text;
+
+                });
+
+            return values;
+        }
+
         /// <summary>
         /// Get the specified attribute from the enumerator field
         /// </summary>

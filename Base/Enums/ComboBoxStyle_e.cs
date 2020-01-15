@@ -8,18 +8,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Enums
 {
-    public interface IXExtension
+    [Flags]
+    public enum ComboBoxStyle_e
     {
-        bool OnConnect();
-        bool OnDisconnect();
-
-        IXApplication Application { get; }
-        IXCommandManager CommandManager { get; }
-
-        IXNativePage<TData> CreatePage<TData>();
+        Sorted = 1,
+        EditableText = 2,
+        EditBoxReadOnly = 4,
+        AvoidSelectionText = 8
     }
 }

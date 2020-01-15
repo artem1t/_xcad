@@ -8,18 +8,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Enums
 {
-    public interface IXExtension
+    [Flags]
+    public enum AddControlOptions_e
     {
-        bool OnConnect();
-        bool OnDisconnect();
-
-        IXApplication Application { get; }
-        IXCommandManager CommandManager { get; }
-
-        IXNativePage<TData> CreatePage<TData>();
+        Visible = 1,
+        Enabled = 2,
+        SmallGapAbove = 4
     }
 }

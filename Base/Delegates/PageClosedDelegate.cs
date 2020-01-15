@@ -8,18 +8,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
+using Xarial.XCad.Enums;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Delegates
 {
-    public interface IXExtension
-    {
-        bool OnConnect();
-        bool OnDisconnect();
-
-        IXApplication Application { get; }
-        IXCommandManager CommandManager { get; }
-
-        IXNativePage<TData> CreatePage<TData>();
-    }
+    public delegate void PageClosedDelegate(PageCloseReasons_e reason);
 }

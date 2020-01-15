@@ -7,19 +7,17 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
-using Xarial.XCad.Structures;
+using Xarial.XCad.Attributes;
+using Xarial.XCad.Enums;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Utils.PageBuilder.Base
 {
-    public interface IXExtension
+    public interface IPageSpec
     {
-        bool OnConnect();
-        bool OnDisconnect();
-
-        IXApplication Application { get; }
-        IXCommandManager CommandManager { get; }
-
-        IXNativePage<TData> CreatePage<TData>();
+        string Title { get; }
+        Image Icon { get; }
+        PageOptions_e Options { get; }
     }
 }

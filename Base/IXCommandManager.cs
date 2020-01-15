@@ -12,14 +12,9 @@ using Xarial.XCad.Structures;
 
 namespace Xarial.XCad
 {
-    public interface IXExtension
+    public interface IXCommandManager
     {
-        bool OnConnect();
-        bool OnDisconnect();
-
-        IXApplication Application { get; }
-        IXCommandManager CommandManager { get; }
-
-        IXNativePage<TData> CreatePage<TData>();
+        IEnumerable<IXCommandBar> CommandBars { get; }
+        IXCommandBar AddCommandBar(CommandBarSpec cmdBar);
     }
 }

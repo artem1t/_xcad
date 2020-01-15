@@ -8,18 +8,19 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Enums
 {
-    public interface IXExtension
+    [Flags]
+    public enum NumberBoxStyle_e
     {
-        bool OnConnect();
-        bool OnDisconnect();
-
-        IXApplication Application { get; }
-        IXCommandManager CommandManager { get; }
-
-        IXNativePage<TData> CreatePage<TData>();
+        None = 0,
+        ComboEditBox = 1,
+        EditBoxReadOnly = 2,
+        AvoidSelectionText = 4,
+        NoScrollArrows = 8,
+        Slider = 16,
+        Thumbwheel = 32,
+        SuppressNotifyWhileTracking = 64
     }
 }

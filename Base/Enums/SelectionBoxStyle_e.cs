@@ -8,18 +8,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Enums
 {
-    public interface IXExtension
+    [Flags]
+    public enum SelectionBoxStyle_e
     {
-        bool OnConnect();
-        bool OnDisconnect();
-
-        IXApplication Application { get; }
-        IXCommandManager CommandManager { get; }
-
-        IXNativePage<TData> CreatePage<TData>();
+        None = 0,
+        HorizontalScroll = 1,
+        UpAndDownButtons = 2,
+        MultipleItemSelect = 4,
+        WantListboxSelectionChanged = 8
     }
 }

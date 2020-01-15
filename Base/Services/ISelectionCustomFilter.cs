@@ -8,18 +8,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
+using Xarial.XCad.Attributes;
+using Xarial.XCad.Enums;
+using Xarial.XCad.Utils.PageBuilder.Base;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Services
 {
-    public interface IXExtension
+    public interface ISelectionCustomFilter
     {
-        bool OnConnect();
-        bool OnDisconnect();
-
-        IXApplication Application { get; }
-        IXCommandManager CommandManager { get; }
-
-        IXNativePage<TData> CreatePage<TData>();
+        bool Filter(IControl selBox, IXSelObject selection, SelectType_e selType, ref string itemText);
     }
 }
