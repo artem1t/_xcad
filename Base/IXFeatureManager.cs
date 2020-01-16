@@ -11,9 +11,9 @@ using System.Text;
 
 namespace Xarial.XCad
 {
-    public interface IXApplication
+    public interface IXFeatureManager
     {
-        IXDocumentCollection Documents { get; }
-        IXGeometryBuilder GeometryBuilder { get; }
+        IXCustomFeature CreateCustomFeature<TDef, TParams>(TParams param)
+            where TDef : class, IXCustomFeatureDefinition, new();
     }
 }

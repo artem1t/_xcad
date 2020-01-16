@@ -9,11 +9,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Enums
 {
-    public interface IXApplication
+    [Flags]
+    public enum CustomFeatureOptions_e
     {
-        IXDocumentCollection Documents { get; }
-        IXGeometryBuilder GeometryBuilder { get; }
+        Default = 0,
+        AlwaysAtEnd = 1,
+        Patternable = 2,
+        Dragable = 4,
+        NoCachedBody = 8
     }
 }

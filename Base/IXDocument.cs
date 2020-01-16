@@ -18,5 +18,6 @@ namespace Xarial.XCad
         string Title { get; }
         string Path { get; }
         void Close();
+        IXFeatureManager FeatureManager { get; }
     }
 }

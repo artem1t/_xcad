@@ -9,11 +9,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Enums
 {
-    public interface IXApplication
+    [Flags]
+    public enum CustomFeatureState_e
     {
-        IXDocumentCollection Documents { get; }
-        IXGeometryBuilder GeometryBuilder { get; }
+        Default = 0,
+        CannotBeDeleted = 1,
+        NotEditable = 2,
+        CannotBeSuppressed = 4,
+        CannotBeReplaced = 8,
+        EnableNote = 16,
+        CannotBeRolledBack = 32
     }
 }

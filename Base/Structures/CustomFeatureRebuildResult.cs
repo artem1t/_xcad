@@ -9,11 +9,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Structures
 {
-    public interface IXApplication
+    public class CustomFeatureRebuildResult
     {
-        IXDocumentCollection Documents { get; }
-        IXGeometryBuilder GeometryBuilder { get; }
+        public bool Result { get; set; }
+        public string ErrorMessage { get; set; }
+    }
+
+    public class CustomFeatureBodyRebuildResult : CustomFeatureRebuildResult 
+    {
+        public IXBody[] Bodies { get; set; }
     }
 }

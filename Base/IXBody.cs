@@ -11,9 +11,7 @@ using System.Text;
 
 namespace Xarial.XCad
 {
-    public interface IXApplication
+    public interface IXBody
     {
-        IXDocumentCollection Documents { get; }
-        IXGeometryBuilder GeometryBuilder { get; }
     }
 }

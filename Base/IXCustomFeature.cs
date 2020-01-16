@@ -11,7 +11,12 @@ using System.Text;
 
 namespace Xarial.XCad
 {
-    public interface IXCustomFeature
+    public interface IXCustomFeature : IXFeature
     {
+        TParams GetParameters<TParams>()
+            where TParams : class, new();
+
+        void SetParameters<TParams>(TParams param)
+            where TParams : class, new();
     }
 }

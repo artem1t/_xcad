@@ -9,11 +9,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Enums
 {
-    public interface IXApplication
+    public enum CustomFeatureDimensionType_e
     {
-        IXDocumentCollection Documents { get; }
-        IXGeometryBuilder GeometryBuilder { get; }
+        Linear = 2,
+        Angular = 3,
+        Radial = 5
     }
 }
