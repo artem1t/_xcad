@@ -13,5 +13,7 @@ namespace Xarial.XCad
 {
     public interface IXDimension : IXSelObject
     {
+        double GetValue(string confName);
+        void SetValue(double val, string confName);
     }
 }
