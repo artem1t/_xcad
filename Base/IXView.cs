@@ -7,18 +7,18 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
-using Xarial.XCad.Delegates;
 using Xarial.XCad.Structures;
 
 namespace Xarial.XCad
 {
-    public interface IXDocument
+    public interface IXView
     {
-        event DocumentCloseDelegate Closing;
-        string Title { get; }
-        string Path { get; }
-        void Close();
-        IXFeatureManager FeatureManager { get; }
+        void Freeze(bool freeze);
+        TransformMatrix Transform { get; set; }
+        TransformMatrix ScreenTransform { get; }
+        Rectangle ScreenRect { get; }
+        void Update();
     }
 }

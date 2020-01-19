@@ -7,7 +7,7 @@
 
 namespace Xarial.XCad
 {
-    public interface IXAssembly : IXDocument
+    public interface IXAssembly : IXDocument3D
     {
     }
 }

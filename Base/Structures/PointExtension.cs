@@ -7,18 +7,16 @@
 
 using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
-using Xarial.XCad.Delegates;
-using Xarial.XCad.Structures;
 
 namespace Xarial.XCad
 {
-    public interface IXDocument
+    public static class VectorExtension
     {
-        event DocumentCloseDelegate Closing;
-        string Title { get; }
-        string Path { get; }
-        void Close();
-        IXFeatureManager FeatureManager { get; }
+        public static Vector3 ToVector3(this Structures.Point pt) 
+        {
+            return new Vector3((float)pt.X, (float)pt.Y, (float)pt.Z);
+        }
     }
 }

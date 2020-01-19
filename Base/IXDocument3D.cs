@@ -5,20 +5,13 @@
 //License: https://github.com/xarial/xcad/blob/master/LICENSE
 //*********************************************************************
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xarial.XCad.Delegates;
 using Xarial.XCad.Structures;
 
 namespace Xarial.XCad
 {
-    public interface IXDocument
+    public interface IXDocument3D : IXDocument
     {
-        event DocumentCloseDelegate Closing;
-        string Title { get; }
-        string Path { get; }
-        void Close();
-        IXFeatureManager FeatureManager { get; }
+        Box3D CalculateBoundingBox();
+        IXView ActiveView { get; }
     }
 }
