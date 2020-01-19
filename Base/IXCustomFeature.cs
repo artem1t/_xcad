@@ -8,17 +8,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xarial.XCad.Structures;
 
 namespace Xarial.XCad
 {
     public interface IXCustomFeature : IXFeature
     {
-        TParams GetParameters<TParams>()
-            where TParams : class, new();
-
-        void SetParameters<TParams>(TParams param)
-            where TParams : class, new();
-
         IXConfiguration Configuration { get; }
+    }
+
+    public interface IXCustomFeature<TParams> : IXFeature
+        where TParams : class, new()
+    {
+        TParams GetParameters();
+
+        void SetParameters(TParams param);
     }
 }

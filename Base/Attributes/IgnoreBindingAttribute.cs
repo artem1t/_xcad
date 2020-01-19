@@ -10,6 +10,7 @@ using Xarial.XCad.Utils.PageBuilder.Base.Attributes;
 
 namespace Xarial.XCad.Attributes
 {
+    //TODO: renamed to something like SkipControlGenerationAttribute
     public class IgnoreBindingAttribute : Attribute, IIgnoreBindingAttribute
     {
     }

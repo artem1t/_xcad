@@ -14,6 +14,7 @@ namespace Xarial.XCad
     public interface IXFeatureManager
     {
         IXCustomFeature CreateCustomFeature<TDef, TParams>(TParams param)
-            where TDef : class, IXCustomFeatureDefinition, new();
+            where TDef : class, IXCustomFeatureDefinition, new()
+            where TParams : class, new();
     }
 }

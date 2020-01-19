@@ -8,12 +8,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xarial.XCad.Structures;
 
 namespace Xarial.XCad
 {
     public interface IXDimension : IXSelObject
     {
-        double GetValue(string confName);
-        void SetValue(double val, string confName);
+        double GetValue(string confName = "");
+        void SetValue(double val, string confName = "");
     }
 }

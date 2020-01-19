@@ -11,7 +11,7 @@ using System.Text;
 
 namespace Xarial.XCad
 {
-    public interface IXSelObject
+    public interface IXSelObject : IXObject
     {
         void Select(bool append);
     }

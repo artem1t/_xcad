@@ -133,7 +133,8 @@ namespace Xarial.XCad.Utils.CustomFeature
                     {
                         var dispDim = featDims[dimInd];
 
-                        var val = dispDim.GetValue(feat.Configuration.Name);
+                        //TODO: work with current configuration when assembly is supported
+                        var val = dispDim.GetValue();
 
                         if (!double.IsNaN(val))
                         {
@@ -344,6 +345,8 @@ namespace Xarial.XCad.Utils.CustomFeature
                 {
                     if (typeof(IList).IsAssignableFrom(prp.PropertyType))
                     {
+                        //TODO: potential issues with IList as IEnumerable can come here as well and it will fail 
+
                         var lst = prp.GetValue(resParams, null) as IList;
 
                         if (lst != null)
@@ -532,11 +535,11 @@ namespace Xarial.XCad.Utils.CustomFeature
             {
                 var prpType = prp.PropertyType;
 
-                var selAtt = prp.TryGetAttribute<ParameterSelectionAttribute>();
                 var dimAtt = prp.TryGetAttribute<ParameterDimensionAttribute>();
                 var editBodyAtt = prp.TryGetAttribute<ParameterEditBodyAttribute>();
 
-                if (selAtt != null)
+                if (typeof(IXSelObject).IsAssignableFrom(prpType)
+                    || typeof(IEnumerable<IXSelObject>).IsAssignableFrom(prpType))
                 {
                     selParamHandler.Invoke(prp);
                 }

@@ -46,4 +46,39 @@ namespace Xarial.XCad
         /// <returns>State of feature</returns>
         CustomFeatureState_e OnUpdateState(IXApplication app, IXDocument model, IXCustomFeature feature);
     }
+
+    public delegate void AlignDimensionDelegate(string paramName, IXDimension dim);
+
+    public interface IXCustomFeatureDefinition<TParams> : IXCustomFeatureDefinition
+        where TParams : class, new()
+    {
+        CustomFeatureRebuildResult OnRebuild(IXApplication app, IXDocument model, IXCustomFeature feature, TParams parameters, out AlignDimensionDelegate alignDim);
+
+        void AlignDimension(IXDimension dim, Point originPt, Vector dir, Vector extDir);
+    }
+
+    public static class IXCustomFeatureDefinitionExtension 
+    {
+        public static void AlignRadialDimension<TParams>(this IXCustomFeatureDefinition<TParams> featDef, IXDimension dim, Point originPt, Vector normal)
+            where TParams : class, new()
+        {
+            Vector dir = null;
+            Vector extDir = null;
+
+            var yVec = new Vector(0, 1, 0);
+
+            if (normal.IsSame(yVec))
+            {
+                dir = new Vector(1, 0, 0);
+            }
+            else
+            {
+                dir = normal.Cross(yVec);
+            }
+
+            extDir = normal.Cross(dir);
+
+            featDef.AlignDimension(dim, originPt, dir, extDir);
+        }
+    }
 }
