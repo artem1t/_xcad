@@ -9,10 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Delegates
 {
-    public interface IXBody : IXSelObject
-    {
-        bool Visible { get; set; }
-    }
+    public delegate TOut DataConverterDelegate<TIn, TOut>(TIn data)
+        where TIn : class, new()
+        where TOut : class, new();
 }

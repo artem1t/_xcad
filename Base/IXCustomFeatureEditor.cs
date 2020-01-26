@@ -11,8 +11,10 @@ using System.Text;
 
 namespace Xarial.XCad
 {
-    public interface IXBody : IXSelObject
-    {
-        bool Visible { get; set; }
+    public interface IXCustomFeatureEditor<TCustomFeatureDef, TData, TPage>
+        where TCustomFeatureDef : class, IXCustomFeatureDefinition<TData>, new()
+        where TData : class, new()
+        where TPage : class, new()
+    { 
     }
 }

@@ -8,7 +8,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xarial.XCad.Delegates;
 using Xarial.XCad.Structures;
+using Xarial.XCad.Utils.CustomFeature;
 
 namespace Xarial.XCad
 {
@@ -21,5 +23,12 @@ namespace Xarial.XCad
         IXCommandManager CommandManager { get; }
 
         IXNativePage<TData> CreatePage<TData>();
+
+        IXCustomFeatureEditor<TCustomFeatureDef, TData, TPage> CreateCustomFeatureEditor<TCustomFeatureDef, TData, TPage>(
+            DataConverterDelegate<TPage, TData> pageToDataConv, DataConverterDelegate<TData, TPage> dataToPageConv,
+            CreateGeometryDelegate<TData> geomCreator)
+            where TCustomFeatureDef : class, IXCustomFeatureDefinition<TData>, new()
+            where TData : class, new()
+            where TPage : class, new();
     }
 }

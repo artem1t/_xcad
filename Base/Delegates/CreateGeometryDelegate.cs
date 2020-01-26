@@ -9,10 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Delegates
 {
-    public interface IXBody : IXSelObject
-    {
-        bool Visible { get; set; }
-    }
+    public delegate IXBody[] CreateGeometryDelegate<TData>(TData data)
+            where TData : class, new();
 }

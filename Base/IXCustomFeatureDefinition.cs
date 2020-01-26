@@ -52,9 +52,10 @@ namespace Xarial.XCad
     public interface IXCustomFeatureDefinition<TParams> : IXCustomFeatureDefinition
         where TParams : class, new()
     {
-        CustomFeatureRebuildResult OnRebuild(IXApplication app, IXDocument model, IXCustomFeature feature, TParams parameters, out AlignDimensionDelegate alignDim);
+        CustomFeatureRebuildResult OnRebuild(IXApplication app, IXDocument model, IXCustomFeature feature, 
+            TParams parameters, out AlignDimensionDelegate alignDim);
 
-        void AlignDimension(IXDimension dim, Structures.Point[] pts, Vector dir, Vector extDir);
+        void AlignDimension(IXDimension dim, Point[] pts, Vector dir, Vector extDir);
     }
 
     public static class IXCustomFeatureDefinitionExtension 

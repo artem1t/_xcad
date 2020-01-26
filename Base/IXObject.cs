@@ -13,5 +13,6 @@ namespace Xarial.XCad
 {
     public interface IXObject
     {
+        bool IsSame(IXObject other);
     }
 }
