@@ -11,12 +11,8 @@ using System.Text;
 
 namespace Xarial.XCad
 {
-    public interface IXBody : IXSelObject
+    public interface IXEntity : IXSelObject
     {
-        bool Visible { get; set; }
-        
-        IXBody Add(IXBody other);
-        IXBody[] Substract(IXBody other);
-        IXBody[] Common(IXBody other);
+        IXBody Body { get; }
     }
 }

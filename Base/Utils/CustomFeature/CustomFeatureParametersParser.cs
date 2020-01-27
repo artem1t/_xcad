@@ -538,12 +538,7 @@ namespace Xarial.XCad.Utils.CustomFeature
                 var dimAtt = prp.TryGetAttribute<ParameterDimensionAttribute>();
                 var editBodyAtt = prp.TryGetAttribute<ParameterEditBodyAttribute>();
 
-                if (typeof(IXSelObject).IsAssignableFrom(prpType)
-                    || typeof(IEnumerable<IXSelObject>).IsAssignableFrom(prpType))
-                {
-                    selParamHandler.Invoke(prp);
-                }
-                else if (dimAtt != null)
+                if (dimAtt != null)
                 {
                     var dimType = dimAtt.DimensionType;
                     dimParamHandler.Invoke(dimType, prp);
@@ -551,6 +546,11 @@ namespace Xarial.XCad.Utils.CustomFeature
                 else if (editBodyAtt != null)
                 {
                     editBodyHandler.Invoke(prp);
+                }
+                else if (typeof(IXSelObject).IsAssignableFrom(prpType)
+                    || typeof(IEnumerable<IXSelObject>).IsAssignableFrom(prpType))
+                {
+                    selParamHandler.Invoke(prp);
                 }
                 else
                 {

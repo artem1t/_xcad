@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using Xarial.XCad.Delegates;
 using Xarial.XCad.Enums;
+using Xarial.XCad.Services;
 using Xarial.XCad.Structures;
 using Xarial.XCad.Utils.Reflection;
 
@@ -40,6 +41,8 @@ namespace Xarial.XCad.Utils.CustomFeature
         private readonly DataConverterDelegate<TData, TPage> m_DataToPageConv;
         private readonly CreateGeometryDelegate<TData> m_GeomCreator;
 
+        private readonly XObjectEqualityComparer<IXBody> m_BodiesComparer;
+
         public BaseCustomFeatureEditor(IXApplication app, IXExtension ext, 
             CustomFeatureParametersParser paramsParser,
             DataConverterDelegate<TPage, TData> pageToDataConv,
@@ -51,7 +54,9 @@ namespace Xarial.XCad.Utils.CustomFeature
             m_PageToDataConv = pageToDataConv;
             m_DataToPageConv = dataToPageConv;
             m_GeomCreator = geomCreator;
-            
+
+            m_BodiesComparer = new XObjectEqualityComparer<IXBody>();
+
             m_PmPage = ext.CreatePage<TPage>();
 
             m_ParamsParser = paramsParser;
@@ -152,14 +157,14 @@ namespace Xarial.XCad.Utils.CustomFeature
 
             m_ParamsParser.Parse(m_CurData, out _, out _, out _, out _, out editBodies);
 
-            var bodiesToShow = m_EditBodies.ValueOrEmpty().Except(editBodies.ValueOrEmpty());
+            var bodiesToShow = m_EditBodies.ValueOrEmpty().Except(editBodies.ValueOrEmpty(), m_BodiesComparer);
 
             foreach (var body in bodiesToShow) 
             {
                 body.Visible = true;
             }
 
-            var bodiesToHide = editBodies.Except(m_EditBodies);
+            var bodiesToHide = editBodies.ValueOrEmpty().Except(m_EditBodies.ValueOrEmpty(), m_BodiesComparer);
 
             foreach (var body in bodiesToHide)
             {
@@ -196,6 +201,11 @@ namespace Xarial.XCad.Utils.CustomFeature
                     m_EditingFeature.SetParameters(null);
                 }
             }
+        }
+
+        public IXBody[] CreateGeometry(TData data)
+        {
+            return m_GeomCreator.Invoke(data);
         }
     }
 }

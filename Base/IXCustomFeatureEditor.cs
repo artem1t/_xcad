@@ -15,6 +15,9 @@ namespace Xarial.XCad
         where TCustomFeatureDef : class, IXCustomFeatureDefinition<TData>, new()
         where TData : class, new()
         where TPage : class, new()
-    { 
+    {
+        void Insert(IXDocument model);
+        void Edit(IXDocument model, IXCustomFeature<TData> feature);
+        IXBody[] CreateGeometry(TData data);
     }
 }
