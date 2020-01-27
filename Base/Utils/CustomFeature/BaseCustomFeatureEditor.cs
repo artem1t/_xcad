@@ -18,8 +18,7 @@ using Xarial.XCad.Utils.Reflection;
 
 namespace Xarial.XCad.Utils.CustomFeature
 {
-    public abstract class BaseCustomFeatureEditor<TCustomFeatureDef, TData, TPage> : IXCustomFeatureEditor<TCustomFeatureDef, TData, TPage>
-        where TCustomFeatureDef : class, IXCustomFeatureDefinition<TData>, new()
+    public abstract class BaseCustomFeatureEditor<TData, TPage> : IXCustomFeatureEditor<TData, TPage>
         where TData : class, new()
         where TPage : class, new()
     {
@@ -43,13 +42,22 @@ namespace Xarial.XCad.Utils.CustomFeature
 
         private readonly XObjectEqualityComparer<IXBody> m_BodiesComparer;
 
+        private readonly Type m_FeatDefType;
+
         public BaseCustomFeatureEditor(IXApplication app, IXExtension ext, 
+            Type featDefType,
             CustomFeatureParametersParser paramsParser,
             DataConverterDelegate<TPage, TData> pageToDataConv,
             DataConverterDelegate<TData, TPage> dataToPageConv,
             CreateGeometryDelegate<TData> geomCreator)
         {
             m_App = app;
+            m_FeatDefType = featDefType;
+
+            if (!typeof(IXCustomFeatureDefinition<TData>).IsAssignableFrom(m_FeatDefType)) 
+            {
+                throw new InvalidCastException($"{m_FeatDefType.FullName} must implement {typeof(IXCustomFeatureDefinition<TData>).FullName}");
+            }
 
             m_PageToDataConv = pageToDataConv;
             m_DataToPageConv = dataToPageConv;
@@ -110,7 +118,7 @@ namespace Xarial.XCad.Utils.CustomFeature
 
                 HidePreviewBodies();
 
-                m_PreviewBodies = m_GeomCreator.Invoke(m_PageToDataConv.Invoke(m_CurData));
+                m_PreviewBodies = m_GeomCreator.Invoke(null, m_PageToDataConv.Invoke(m_CurData), out _);
 
                 HideEditBodies();
 
@@ -187,7 +195,12 @@ namespace Xarial.XCad.Utils.CustomFeature
             {
                 if (m_EditingFeature == null)
                 {
-                    CurModel.FeatureManager.CreateCustomFeature<TCustomFeatureDef, TData>(m_PageToDataConv.Invoke(m_CurData));
+                    var feat = CurModel.FeatureManager.CreateCustomFeature(m_FeatDefType, m_PageToDataConv.Invoke(m_CurData));
+
+                    if (feat == null) 
+                    {
+                        throw new NullReferenceException("Failed to create custom feature");
+                    }
                 }
                 else
                 {
@@ -203,9 +216,9 @@ namespace Xarial.XCad.Utils.CustomFeature
             }
         }
 
-        public IXBody[] CreateGeometry(TData data)
+        public IXBody[] CreateGeometry(IXCustomFeatureDefinition def, TData data, out AlignDimensionDelegate<TData> alignDim)
         {
-            return m_GeomCreator.Invoke(data);
+            return m_GeomCreator.Invoke(def, data, out alignDim);
         }
     }
 }

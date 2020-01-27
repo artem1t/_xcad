@@ -8,16 +8,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Delegates;
 
 namespace Xarial.XCad
 {
-    public interface IXCustomFeatureEditor<TData, TPage>
-        where TData : class, new()
-        where TPage : class, new()
+    public static class IXFeatureManagerExtension
     {
-        void Insert(IXDocument model);
-        void Edit(IXDocument model, IXCustomFeature<TData> feature);
-        IXBody[] CreateGeometry(IXCustomFeatureDefinition def, TData data, out AlignDimensionDelegate<TData> alignDim);
+        public static IXCustomFeature CreateCustomFeature<TDef, TParams>(this IXFeatureManager featMgr, TParams param)
+            where TDef : class, IXCustomFeatureDefinition, new()
+            where TParams : class, new()
+        {
+            return featMgr.CreateCustomFeature<TParams>(typeof(TDef), param);
+        }
     }
 }

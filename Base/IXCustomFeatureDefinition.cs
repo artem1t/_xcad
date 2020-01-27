@@ -8,6 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xarial.XCad.Delegates;
 using Xarial.XCad.Enums;
 using Xarial.XCad.Structures;
 
@@ -47,13 +48,11 @@ namespace Xarial.XCad
         CustomFeatureState_e OnUpdateState(IXApplication app, IXDocument model, IXCustomFeature feature);
     }
 
-    public delegate void AlignDimensionDelegate(string paramName, IXDimension dim);
-
     public interface IXCustomFeatureDefinition<TParams> : IXCustomFeatureDefinition
         where TParams : class, new()
     {
         CustomFeatureRebuildResult OnRebuild(IXApplication app, IXDocument model, IXCustomFeature feature, 
-            TParams parameters, out AlignDimensionDelegate alignDim);
+            TParams parameters, out AlignDimensionDelegate<TParams> alignDim);
 
         void AlignDimension(IXDimension dim, Point[] pts, Vector dir, Vector extDir);
     }

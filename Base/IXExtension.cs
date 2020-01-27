@@ -24,10 +24,9 @@ namespace Xarial.XCad
 
         IXNativePage<TData> CreatePage<TData>();
 
-        IXCustomFeatureEditor<TCustomFeatureDef, TData, TPage> CreateCustomFeatureEditor<TCustomFeatureDef, TData, TPage>(
+        IXCustomFeatureEditor<TData, TPage> CreateCustomFeatureEditor<TData, TPage>(Type defType,
             DataConverterDelegate<TPage, TData> pageToDataConv, DataConverterDelegate<TData, TPage> dataToPageConv,
             CreateGeometryDelegate<TData> geomCreator)
-            where TCustomFeatureDef : class, IXCustomFeatureDefinition<TData>, new()
             where TData : class, new()
             where TPage : class, new();
     }

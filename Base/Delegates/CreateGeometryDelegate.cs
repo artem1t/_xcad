@@ -11,6 +11,6 @@ using System.Text;
 
 namespace Xarial.XCad.Delegates
 {
-    public delegate IXBody[] CreateGeometryDelegate<TData>(TData data)
+    public delegate IXBody[] CreateGeometryDelegate<TData>(IXCustomFeatureDefinition def, TData data, out AlignDimensionDelegate<TData> alignDim)
             where TData : class, new();
 }

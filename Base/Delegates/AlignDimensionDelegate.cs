@@ -8,13 +8,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Utils.CustomFeature;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Delegates
 {
-    public interface IXFeatureManager
-    {
-        IXCustomFeature CreateCustomFeature<TParams>(Type featDefType, TParams param)
-            where TParams : class, new();
-    }
+    public delegate void AlignDimensionDelegate<TData>(IXCustomFeatureDefinition<TData> def, string paramName, IXDimension dim)
+        where TData : class, new();
 }
