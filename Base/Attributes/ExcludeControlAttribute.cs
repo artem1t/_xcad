@@ -6,12 +6,11 @@
 //*********************************************************************
 
 using System;
-using System.Collections.Generic;
-using System.Text;
+using Xarial.XCad.Utils.PageBuilder.Base.Attributes;
 
-namespace Xarial.XCad.Delegates
+namespace Xarial.XCad.Attributes
 {
-    public delegate IXBody[] CreateGeometryDelegate<TData>(IXCustomFeatureDefinition def, TData data,
-        bool isPreview, out AlignDimensionDelegate<TData> alignDim)
-        where TData : class, new();
+    public class ExcludeControlAttribute : Attribute, IIgnoreBindingAttribute
+    {
+    }
 }

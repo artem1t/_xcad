@@ -6,12 +6,14 @@
 //*********************************************************************
 
 using System;
-using Xarial.XCad.Utils.PageBuilder.Base.Attributes;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.Enums
 {
-    //TODO: renamed to something like SkipControlGenerationAttribute
-    public class IgnoreBindingAttribute : Attribute, IIgnoreBindingAttribute
+    public enum SketchType_e
     {
+        XY,
+        XYZ
     }
 }

@@ -118,7 +118,7 @@ namespace Xarial.XCad.Utils.CustomFeature
 
                 HidePreviewBodies();
 
-                m_PreviewBodies = m_GeomCreator.Invoke(null, m_PageToDataConv.Invoke(m_CurData), out _);
+                m_PreviewBodies = m_GeomCreator.Invoke(null, m_PageToDataConv.Invoke(m_CurData), true, out _);
 
                 HideEditBodies();
 
@@ -191,6 +191,9 @@ namespace Xarial.XCad.Utils.CustomFeature
 
             HidePreviewBodies();
 
+            m_EditBodies = null;
+            m_PreviewBodies = null;
+
             if (reason == PageCloseReasons_e.Okay)
             {
                 if (m_EditingFeature == null)
@@ -216,9 +219,9 @@ namespace Xarial.XCad.Utils.CustomFeature
             }
         }
 
-        public IXBody[] CreateGeometry(IXCustomFeatureDefinition def, TData data, out AlignDimensionDelegate<TData> alignDim)
+        public IXBody[] CreateGeometry(IXCustomFeatureDefinition def, TData data, bool isPreview, out AlignDimensionDelegate<TData> alignDim)
         {
-            return m_GeomCreator.Invoke(def, data, out alignDim);
+            return m_GeomCreator.Invoke(def, data, isPreview, out alignDim);
         }
     }
 }

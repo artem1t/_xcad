@@ -18,6 +18,6 @@ namespace Xarial.XCad
     {
         void Insert(IXDocument model);
         void Edit(IXDocument model, IXCustomFeature<TData> feature);
-        IXBody[] CreateGeometry(IXCustomFeatureDefinition def, TData data, out AlignDimensionDelegate<TData> alignDim);
+        IXBody[] CreateGeometry(IXCustomFeatureDefinition def, TData data, bool isPreview, out AlignDimensionDelegate<TData> alignDim);
     }
 }

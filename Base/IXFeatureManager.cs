@@ -8,6 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xarial.XCad.Enums;
 using Xarial.XCad.Utils.CustomFeature;
 
 namespace Xarial.XCad
@@ -16,5 +17,7 @@ namespace Xarial.XCad
     {
         IXCustomFeature CreateCustomFeature<TParams>(Type featDefType, TParams param)
             where TParams : class, new();
+
+        IXSketch CreateSketch(SketchType_e type);
     }
 }

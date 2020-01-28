@@ -65,21 +65,30 @@ namespace Xarial.XCad
             featDef.AlignDimension(dim, new Point[] { originPt, endPt }, dir, extDir);
         }
 
-        public static void AlignAngularDimension<TParams>(this IXCustomFeatureDefinition<TParams> featDef, IXDimension dim, Point centerPt, Point refPt, Vector rotVec)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TParams"></typeparam>
+        /// <param name="featDef"></param>
+        /// <param name="dim"></param>
+        /// <param name="centerPt">Point at the center of the radiam dimension (fixed point)</param>
+        /// <param name="refPt">Reference point of the radial dimension (fixed point)</param>
+        /// <param name="rotVec">Vector, normal to the radial dimension extension line</param>
+        public static void AlignAngularDimension<TParams>(this IXCustomFeatureDefinition<TParams> featDef, 
+            IXDimension dim, Point centerPt, Point refPt, Vector rotVec)
             where TParams : class, new()
         {
             var angle = dim.GetValue();
 
-            //TODO: fix precesion issue as converting from double to float
+            var dirVec = new Vector(refPt.X - centerPt.X, refPt.Y - centerPt.Y, refPt.Z - centerPt.Z);
 
-            var quat = System.Numerics.Quaternion.CreateFromAxisAngle(
-                new System.Numerics.Vector3((float)rotVec.X, (float)rotVec.Y, (float)rotVec.Z), -(float)angle);
+            var contLegLenth = dirVec.GetLength();
 
-            var midPtVec = System.Numerics.Vector3.Transform(
-                new System.Numerics.Vector3((float)refPt.X, (float)refPt.Y, (float)refPt.Z),
-                quat);
+            var alignDir = rotVec.Cross(dirVec);
 
-            var midPt = new Point(midPtVec.X, midPtVec.Y, midPtVec.Z);
+            var oppLegLength = contLegLenth * Math.Tan(angle);
+
+            var midPt = refPt.Move(alignDir, oppLegLength);
 
             featDef.AlignDimension(dim, new Point[] { refPt, midPt, centerPt }, null, null);
         }
