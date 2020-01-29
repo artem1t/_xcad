@@ -14,7 +14,7 @@ using Xarial.XCad.Attributes;
 using Xarial.XCad.Delegates;
 using Xarial.XCad.Enums;
 using Xarial.XCad.Extensions;
-using Xarial.XCad.Utils.Reflection;
+using Xarial.XCad.Reflection;
 using Xarial.XCad.Structures;
 
 namespace Xarial.XCad
@@ -60,7 +60,7 @@ namespace Xarial.XCad
             var cmd = new EnumCommandSpec<TCmdEnum>(cmdEnum);
 
             cmd.UserId = Convert.ToInt32(cmdEnum);
-
+            
             if (!cmdEnum.TryGetAttribute<CommandItemInfoAttribute>(
                 att =>
                 {
@@ -78,7 +78,7 @@ namespace Xarial.XCad
                 cmd.TabBoxStyle = RibbonTabTextDisplay_e.TextBelow;
             }
 
-            cmd.HasSpacer = cmdEnum.TryGetAttribute<CommandSpacerAttribute>() != null;
+            cmd.HasSpacer = cmdEnum.TryGetAttribute<CommandSpacerAttribute>(x=> { });
 
             if (!cmdEnum.TryGetAttribute<DisplayNameAttribute>(
                 att => cmd.Title = att.DisplayName))
@@ -108,9 +108,9 @@ namespace Xarial.XCad
 
             var bar = new EnumCommandBarSpec(cmdGroupType);
 
-            CommandBarInfoAttribute grpInfoAtt;
+            CommandBarInfoAttribute grpInfoAtt = null;
 
-            if (cmdGroupType.TryGetAttribute(out grpInfoAtt))
+            if (cmdGroupType.TryGetAttribute<CommandBarInfoAttribute>(x => grpInfoAtt = x))
             {
                 if (grpInfoAtt.UserId != -1)
                 {

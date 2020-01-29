@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Text;
 using Xarial.XCad.Delegates;
 using Xarial.XCad.Structures;
-using Xarial.XCad.Utils.CustomFeature;
 
 namespace Xarial.XCad
 {
