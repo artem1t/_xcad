@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Xarial.XCad.Utils.PageBuilder.Attributes;
+using Xarial.XCad.Utils.PageBuilder.Base.Attributes;
 
 namespace Xarial.XCad.Attributes
 {
@@ -21,13 +21,16 @@ namespace Xarial.XCad.Attributes
     /// Attribute indicates that current property should be rendered as option box
     /// </summary>
     /// <remarks>This attribute is only applicable for <see cref="Enum">enum</see> types</remarks>
-    public class OptionBoxAttribute : SpecificConstructorAttribute
+    public class OptionBoxAttribute : Attribute, ISpecificConstructorAttribute
     {
+        public Type ConstructorType { get; }
+
         /// <summary>
         /// Sets the current property as option box
         /// </summary>
-        public OptionBoxAttribute() : base(typeof(IOptionBoxConstructor))
+        public OptionBoxAttribute()
         {
+            ConstructorType = typeof(IOptionBoxConstructor);
         }
     }
 }

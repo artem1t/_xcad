@@ -6,18 +6,10 @@
 //*********************************************************************
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xarial.XCad.Enums;
 
 namespace Xarial.XCad.Structures
 {
-    public class CommandState
-    {
-        public bool Enabled { get; set; }
-        public bool Checked { get; set; }
-    }
-
     public static class CommandStateExtension 
     {
         public static void ResolveState(this CommandState state, WorkspaceTypes_e ws, IXApplication app) 

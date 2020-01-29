@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Xarial.XCad.Utils.PageBuilder.Attributes;
+using Xarial.XCad.Utils.PageBuilder.Base.Attributes;
 
 namespace Xarial.XCad.Attributes
 {
@@ -22,13 +22,16 @@ namespace Xarial.XCad.Attributes
     /// </summary>
     /// <remarks>This attribute is only applicable for complex types which contain nested properties</remarks>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property)]
-    public class TabAttribute : SpecificConstructorAttribute
+    public class TabAttribute : Attribute, ISpecificConstructorAttribute
     {
+        public Type ConstructorType { get; }
+
         /// <summary>
         /// Sets the current property as tab container
         /// </summary>
-        public TabAttribute() : base(typeof(ITabConstructor))
+        public TabAttribute()
         {
+            ConstructorType = typeof(ITabConstructor);
         }
     }
 }
