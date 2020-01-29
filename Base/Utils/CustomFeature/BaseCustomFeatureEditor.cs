@@ -92,7 +92,7 @@ namespace Xarial.XCad.Utils.CustomFeature
 
             try
             {
-                var featParam = m_EditingFeature.GetParameters();
+                var featParam = m_EditingFeature.Parameters;
 
                 m_CurData = m_DataToPageConv.Invoke(featParam);
 
@@ -101,7 +101,7 @@ namespace Xarial.XCad.Utils.CustomFeature
             }
             catch
             {
-                m_EditingFeature.SetParameters(null);
+                m_EditingFeature.Parameters = null;
             }
         }
 
@@ -198,7 +198,10 @@ namespace Xarial.XCad.Utils.CustomFeature
             {
                 if (m_EditingFeature == null)
                 {
-                    var feat = CurModel.FeatureManager.CreateCustomFeature(m_FeatDefType, m_PageToDataConv.Invoke(m_CurData));
+                    var feat = CurModel.Features.NewCustomFeature<TData>();
+                    feat.DefinitionType = m_FeatDefType;
+                    feat.Parameters = m_PageToDataConv.Invoke(m_CurData);
+                    CurModel.Features.Add(feat);
 
                     if (feat == null) 
                     {
@@ -207,14 +210,14 @@ namespace Xarial.XCad.Utils.CustomFeature
                 }
                 else
                 {
-                    m_EditingFeature.SetParameters(m_PageToDataConv.Invoke(m_CurData));
+                    m_EditingFeature.Parameters = m_PageToDataConv.Invoke(m_CurData);
                 }
             }
             else
             {
                 if (m_EditingFeature != null)
                 {
-                    m_EditingFeature.SetParameters(null);
+                    m_EditingFeature.Parameters = null;
                 }
             }
         }

@@ -11,13 +11,11 @@ using System.Text;
 
 namespace Xarial.XCad
 {
-    public static class IXFeatureManagerExtension
+    public static class IXFeatureCollectionExtension
     {
-        public static IXCustomFeature CreateCustomFeature<TDef, TParams>(this IXFeatureManager featMgr, TParams param)
-            where TDef : class, IXCustomFeatureDefinition, new()
-            where TParams : class, new()
+        public static void Add(this IXFeatureCollection featColl, params IXFeature[] feats)
         {
-            return featMgr.CreateCustomFeature<TParams>(typeof(TDef), param);
+            featColl.AddRange(feats);
         }
     }
 }

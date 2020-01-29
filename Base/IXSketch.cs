@@ -8,18 +8,22 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xarial.XCad.Enums;
 using Xarial.XCad.Structures;
 
 namespace Xarial.XCad
 {
-    public interface IXSketchEntitiesCollection : IEnumerable<IXSketchEntity>
+    public interface IXSketchEntityCollection : IEnumerable<IXSketchEntity>
     {
         int Count { get; }
 
         void AddRange(IEnumerable<IXSketchEntity> segments);
+
+        IXSketchLine NewLine();
+        IXSketchPoint NewPoint();
     }
 
-    public interface IXSketchEntity : IXEntity 
+    public interface IXSketchEntity : IXSelObject 
     {
     }
 
@@ -38,9 +42,17 @@ namespace Xarial.XCad
         Point Coordinate { get; set; }
     }
 
-    public interface IXSketch : IXFeature
+    public interface IXSketchBase : IXFeature 
     {
-        IXSketchEntitiesCollection Entities { get; }
         bool IsEditing { get; set; }
+        IXSketchEntityCollection Entities { get; }
+    }
+
+    public interface IXSketch2D : IXSketchBase
+    {
+    }
+
+    public interface IXSketch3D : IXSketchBase
+    {
     }
 }

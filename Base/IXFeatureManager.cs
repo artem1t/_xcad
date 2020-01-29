@@ -13,11 +13,16 @@ using Xarial.XCad.Utils.CustomFeature;
 
 namespace Xarial.XCad
 {
-    public interface IXFeatureManager
+    public interface IXFeatureCollection : IEnumerable<IXFeature>
     {
-        IXCustomFeature CreateCustomFeature<TParams>(Type featDefType, TParams param)
+        int Count { get; }
+
+        void AddRange(IEnumerable<IXFeature> feats);
+
+        IXCustomFeature<TParams> NewCustomFeature<TParams>()
             where TParams : class, new();
 
-        IXSketch CreateSketch(SketchType_e type);
+        IXSketch2D New2DSketch();
+        IXSketch3D New3DSketch();
     }
 }

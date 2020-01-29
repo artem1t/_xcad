@@ -14,14 +14,13 @@ namespace Xarial.XCad
 {
     public interface IXCustomFeature : IXFeature
     {
+        Type DefinitionType { get; set; }
         IXConfiguration Configuration { get; }
     }
 
-    public interface IXCustomFeature<TParams> : IXFeature
+    public interface IXCustomFeature<TParams> : IXCustomFeature
         where TParams : class, new()
     {
-        TParams GetParameters();
-
-        void SetParameters(TParams param);
+        TParams Parameters { get; set; }        
     }
 }
