@@ -8,8 +8,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xarial.XCad.Geometry;
 
-namespace Xarial.XCad.Delegates
+namespace Xarial.XCad.Features.CustomFeature.Delegates
 {
     public delegate IXBody[] CreateGeometryDelegate<TData>(IXCustomFeatureDefinition def, TData data,
         bool isPreview, out AlignDimensionDelegate<TData> alignDim)

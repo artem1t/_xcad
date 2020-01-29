@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad.Enums
+namespace Xarial.XCad.UI.PropertyPage.Enums
 {
     public enum ControlOnResizeOptions_e
     {

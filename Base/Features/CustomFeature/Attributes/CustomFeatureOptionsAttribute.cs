@@ -6,9 +6,9 @@
 //*********************************************************************
 
 using System;
-using Xarial.XCad.Enums;
+using Xarial.XCad.Features.CustomFeature.Enums;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.Features.CustomFeature.Attributes
 {
     /// <summary>
     /// Provides additional options for macro feature

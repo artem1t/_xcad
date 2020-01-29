@@ -8,7 +8,7 @@
 using System.ComponentModel;
 using System.Drawing;
 
-namespace Xarial.XCad.Structures
+namespace Xarial.XCad.UI.Commands.Structures
 {
     public class CommandBarSpec
     {

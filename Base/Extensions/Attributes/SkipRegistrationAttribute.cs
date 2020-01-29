@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.Extensions.Attributes
 {
     public class SkipRegistrationAttribute : Attribute
     {

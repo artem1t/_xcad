@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad.Delegates
+namespace Xarial.XCad.Features.CustomFeature.Delegates
 {
     public delegate TOut DataConverterDelegate<TIn, TOut>(TIn data)
         where TIn : class, new()

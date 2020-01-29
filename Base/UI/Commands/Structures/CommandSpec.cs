@@ -7,10 +7,10 @@
 
 using System.ComponentModel;
 using System;
-using Xarial.XCad.Enums;
 using System.Drawing;
+using Xarial.XCad.UI.Commands.Enums;
 
-namespace Xarial.XCad.Structures
+namespace Xarial.XCad.UI.Commands.Structures
 {
     public class CommandSpec
     {

@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad.Enums
+namespace Xarial.XCad.UI.Commands.Enums
 {
     /// <summary>
     /// Provides the enumeration of various workspaces

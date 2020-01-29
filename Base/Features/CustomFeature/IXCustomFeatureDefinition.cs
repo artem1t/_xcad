@@ -8,11 +8,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Delegates;
-using Xarial.XCad.Enums;
-using Xarial.XCad.Structures;
+using Xarial.XCad.Annotations;
+using Xarial.XCad.Documents;
+using Xarial.XCad.Features.CustomFeature.Delegates;
+using Xarial.XCad.Features.CustomFeature.Enums;
+using Xarial.XCad.Features.CustomFeature.Structures;
+using Xarial.XCad.Geometry.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Features.CustomFeature
 {
     public interface IXCustomFeatureDefinition
     {

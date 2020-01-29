@@ -8,8 +8,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xarial.XCad.Geometry;
 
-namespace Xarial.XCad.Structures
+namespace Xarial.XCad.Features.CustomFeature.Structures
 {
     public class CustomFeatureRebuildResult
     {

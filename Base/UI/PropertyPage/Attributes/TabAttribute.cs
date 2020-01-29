@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Xarial.XCad.Utils.PageBuilder.Base.Attributes;
+using Xarial.XCad.UI.PropertyPage.Base;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.UI.PropertyPage.Attributes
 {
     public interface ITabConstructor 
     {

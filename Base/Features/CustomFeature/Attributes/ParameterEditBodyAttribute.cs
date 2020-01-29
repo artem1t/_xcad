@@ -8,7 +8,7 @@
 using System;
 using System.ComponentModel;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.Features.CustomFeature.Attributes
 {
     /// <summary>
     /// Specifies that the current property is an edit body of the macro feature.

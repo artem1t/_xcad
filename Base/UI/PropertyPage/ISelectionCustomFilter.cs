@@ -8,11 +8,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Attributes;
-using Xarial.XCad.Enums;
-using Xarial.XCad.Utils.PageBuilder.Base;
+using Xarial.XCad.Base.Enums;
+using Xarial.XCad.UI.PropertyPage.Base;
 
-namespace Xarial.XCad.Services
+namespace Xarial.XCad.UI.PropertyPage
 {
     public interface ISelectionCustomFilter
     {

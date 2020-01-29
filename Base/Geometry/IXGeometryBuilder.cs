@@ -8,9 +8,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
+using Xarial.XCad.Geometry.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Geometry
 {
     public interface IXGeometryBuilder
     {

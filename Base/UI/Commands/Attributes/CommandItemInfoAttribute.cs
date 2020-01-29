@@ -6,9 +6,9 @@
 //*********************************************************************
 
 using System;
-using Xarial.XCad.Enums;
+using Xarial.XCad.UI.Commands.Enums;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.UI.Commands.Attributes
 {
     /// <summary>
     /// Provides additional information about the item command

@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Xarial.XCad.Utils.PageBuilder.Base.Attributes
+namespace Xarial.XCad.UI.PropertyPage.Base
 {
     public interface IDependentOnAttribute : IAttribute
     {

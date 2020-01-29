@@ -6,9 +6,9 @@
 //*********************************************************************
 
 using System;
-using Xarial.XCad.Services;
+using Xarial.XCad.Features.CustomFeature.Services;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.Features.CustomFeature.Attributes
 {
     /// <summary>
     /// Attributes specifies the current version of the macro feature parameters data model.

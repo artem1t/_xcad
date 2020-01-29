@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Xarial.XCad.Utils.PageBuilder.Base
+namespace Xarial.XCad.UI.PropertyPage.Base
 {
     public delegate void ControlObjectValueChangedDelegate(IControl sender, object newValue);
 

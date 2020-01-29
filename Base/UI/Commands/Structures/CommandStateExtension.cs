@@ -6,9 +6,10 @@
 //*********************************************************************
 
 using System;
-using Xarial.XCad.Enums;
+using Xarial.XCad.Documents;
+using Xarial.XCad.UI.Commands.Enums;
 
-namespace Xarial.XCad.Structures
+namespace Xarial.XCad.UI.Commands.Structures
 {
     public static class CommandStateExtension 
     {

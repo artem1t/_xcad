@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Features
 {
     public static class IXFeatureCollectionExtension
     {

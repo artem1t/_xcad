@@ -8,8 +8,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xarial.XCad.Annotations;
 
-namespace Xarial.XCad.Delegates
+namespace Xarial.XCad.Features.CustomFeature.Delegates
 {
     public delegate void AlignDimensionDelegate<TData>(IXCustomFeatureDefinition<TData> def, string paramName, IXDimension dim)
         where TData : class, new();

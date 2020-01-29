@@ -5,7 +5,7 @@
 //License: https://github.com/xarial/xcad/blob/master/LICENSE
 //*********************************************************************
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Sketch
 {
     public interface IXSketchEntity : IXSelObject 
     {

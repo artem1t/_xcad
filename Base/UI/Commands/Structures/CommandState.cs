@@ -8,9 +8,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Enums;
 
-namespace Xarial.XCad.Structures
+namespace Xarial.XCad.UI.Commands.Structures
 {
     public class CommandState
     {

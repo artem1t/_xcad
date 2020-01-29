@@ -8,9 +8,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Delegates;
+using Xarial.XCad.Documents;
+using Xarial.XCad.Features.CustomFeature.Delegates;
+using Xarial.XCad.Geometry;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Features.CustomFeature
 {
     public interface IXCustomFeatureEditor<TData, TPage>
         where TData : class, new()

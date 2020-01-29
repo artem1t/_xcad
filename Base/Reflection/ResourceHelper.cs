@@ -8,7 +8,7 @@
 using System;
 using System.Reflection;
 
-namespace Xarial.XCad.Utils.Reflection
+namespace Xarial.XCad.Reflection
 {
     /// <summary>
     /// Helper class to work with resources

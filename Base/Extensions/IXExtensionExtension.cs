@@ -8,9 +8,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Delegates;
+using Xarial.XCad.Features.CustomFeature;
+using Xarial.XCad.Features.CustomFeature.Delegates;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Extensions
 {
     public static class IXExtensionExtension
     {

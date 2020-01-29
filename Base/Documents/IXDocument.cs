@@ -8,10 +8,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Delegates;
-using Xarial.XCad.Structures;
+using Xarial.XCad.Documents.Delegates;
+using Xarial.XCad.Features;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Documents
 {
     public interface IXDocument
     {

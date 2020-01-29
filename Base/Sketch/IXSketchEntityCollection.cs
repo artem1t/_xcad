@@ -7,7 +7,7 @@
 
 using System.Collections.Generic;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Sketch
 {
     public interface IXSketchEntityCollection : IEnumerable<IXSketchEntity>
     {

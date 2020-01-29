@@ -8,10 +8,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Delegates;
-using Xarial.XCad.Structures;
+using Xarial.XCad.Features.CustomFeature;
+using Xarial.XCad.Features.CustomFeature.Delegates;
+using Xarial.XCad.UI.Commands;
+using Xarial.XCad.UI.PropertyPage;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Extensions
 {
     public interface IXExtension
     {

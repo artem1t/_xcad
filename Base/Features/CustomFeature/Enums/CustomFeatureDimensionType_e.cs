@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad.Enums
+namespace Xarial.XCad.Features.CustomFeature.Enums
 {
     public enum CustomFeatureDimensionType_e
     {

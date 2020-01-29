@@ -5,7 +5,9 @@
 //License: https://github.com/xarial/xcad/blob/master/LICENSE
 //*********************************************************************
 
-namespace Xarial.XCad
+using Xarial.XCad.Sketch;
+
+namespace Xarial.XCad.Features
 {
     public interface IXSketchBase : IXFeature 
     {

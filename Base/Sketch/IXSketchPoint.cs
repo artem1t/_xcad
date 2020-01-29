@@ -5,9 +5,9 @@
 //License: https://github.com/xarial/xcad/blob/master/LICENSE
 //*********************************************************************
 
-using Xarial.XCad.Structures;
+using Xarial.XCad.Geometry.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Sketch
 {
     public interface IXSketchPoint  : IXSketchEntity
     {

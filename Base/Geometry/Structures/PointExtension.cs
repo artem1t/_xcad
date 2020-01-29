@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Geometry.Structures
 {
     public static class VectorExtension
     {

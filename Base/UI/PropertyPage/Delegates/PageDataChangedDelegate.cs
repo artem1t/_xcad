@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad.Delegates
+namespace Xarial.XCad.UI.PropertyPage.Delegates
 {
     public delegate void PageDataChangedDelegate();
 }

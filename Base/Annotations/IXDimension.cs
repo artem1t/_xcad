@@ -8,9 +8,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Annotations
 {
     public interface IXDimension : IXSelObject
     {

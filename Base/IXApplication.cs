@@ -8,6 +8,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xarial.XCad.Documents;
+using Xarial.XCad.Geometry;
 
 namespace Xarial.XCad
 {

@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.UI.Commands.Attributes
 {
     /// <summary>
     /// Marks the command to be separated by the spacer (separator) in the menu and the toolbar

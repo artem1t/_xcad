@@ -10,14 +10,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using Xarial.XCad.Attributes;
-using Xarial.XCad.Delegates;
-using Xarial.XCad.Enums;
+using Xarial.XCad.Base.Attributes;
 using Xarial.XCad.Extensions;
 using Xarial.XCad.Reflection;
-using Xarial.XCad.Structures;
+using Xarial.XCad.UI.Commands.Attributes;
+using Xarial.XCad.UI.Commands.Enums;
+using Xarial.XCad.UI.Commands.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.UI.Commands
 {
     public static class IXCommandManagerExtension
     {

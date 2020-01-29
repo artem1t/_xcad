@@ -9,9 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
-using Xarial.XCad.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Geometry.Structures
 {
     public static class TransformMatrixExtension
     {

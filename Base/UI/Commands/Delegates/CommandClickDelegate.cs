@@ -8,9 +8,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
+using Xarial.XCad.UI.Commands.Structures;
 
-namespace Xarial.XCad.Delegates
+namespace Xarial.XCad.UI.Commands.Delegates
 {
     public delegate void CommandClickDelegate(CommandSpec spec);
 

@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Xarial.XCad.Structures
+namespace Xarial.XCad.Geometry.Structures
 {
     /// <inheritdoc/>
     /// <summary>

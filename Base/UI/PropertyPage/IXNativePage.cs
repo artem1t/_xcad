@@ -8,9 +8,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Delegates;
+using Xarial.XCad.UI.PropertyPage.Delegates;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.UI.PropertyPage
 {
     public interface IXNativePage<TDataModel>
     {

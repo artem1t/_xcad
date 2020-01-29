@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.UI.Commands.Attributes
 {
     /// <summary>
     /// Provides the additional information about the command group

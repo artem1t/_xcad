@@ -6,10 +6,10 @@
 //*********************************************************************
 
 using System.Collections.Generic;
-using Xarial.XCad.Delegates;
-using Xarial.XCad.Structures;
+using Xarial.XCad.Documents.Delegates;
+using Xarial.XCad.Documents.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Documents
 {   
     public interface IXDocumentCollection : IEnumerable<IXDocument>
     {

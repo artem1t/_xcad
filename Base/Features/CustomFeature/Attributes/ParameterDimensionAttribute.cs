@@ -10,9 +10,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using Xarial.XCad.Enums;
+using Xarial.XCad.Features.CustomFeature.Enums;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.Features.CustomFeature.Attributes
 {
     /// <summary>
     /// Specifies that the current property is a dimension of the macro feature.

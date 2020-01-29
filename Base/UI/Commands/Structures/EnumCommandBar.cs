@@ -9,11 +9,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
-using Xarial.XCad.Delegates;
-using Xarial.XCad.Structures;
-using static Xarial.XCad.IXCommandManagerExtension;
+using Xarial.XCad.UI.Commands.Delegates;
+using static Xarial.XCad.UI.Commands.IXCommandManagerExtension;
 
-namespace Xarial.XCad.Extensions
+namespace Xarial.XCad.UI.Commands.Structures
 {
     public interface IEnumCommandBar<TCmdEnum> : IXCommandBar
         where TCmdEnum : Enum

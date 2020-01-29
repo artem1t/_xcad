@@ -6,9 +6,9 @@
 //*********************************************************************
 
 using System;
-using Xarial.XCad.Utils.PageBuilder.Base.Attributes;
+using Xarial.XCad.UI.PropertyPage.Base;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.UI.PropertyPage.Attributes
 {
     public class ExcludeControlAttribute : Attribute, IIgnoreBindingAttribute
     {

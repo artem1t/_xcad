@@ -8,9 +8,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Enums;
+using Xarial.XCad.UI.PropertyPage.Enums;
 
-namespace Xarial.XCad.Delegates
+namespace Xarial.XCad.UI.PropertyPage.Delegates
 {
     public delegate void PageClosedDelegate(PageCloseReasons_e reason);
 }

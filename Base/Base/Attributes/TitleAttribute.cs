@@ -7,9 +7,9 @@
 
 using System;
 using System.ComponentModel;
-using Xarial.XCad.Utils.Reflection;
+using Xarial.XCad.Reflection;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.Base.Attributes
 {
     /// <summary>
     /// Decorates the display name for the element (e.g. command, user control, object etc.)

@@ -9,10 +9,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Xarial.XCad.Enums;
-using Xarial.XCad.Utils.PageBuilder.Base;
+using Xarial.XCad.UI.PropertyPage.Base;
+using Xarial.XCad.UI.PropertyPage.Enums;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.UI.PropertyPage.Attributes
 {
     /// <summary>
     /// Provides additional options for number box control

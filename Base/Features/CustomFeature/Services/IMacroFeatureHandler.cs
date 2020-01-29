@@ -8,9 +8,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Enums;
+using Xarial.XCad.Documents;
+using Xarial.XCad.Features.CustomFeature.Enums;
 
-namespace Xarial.XCad.Services
+namespace Xarial.XCad.Features.CustomFeature.Services
 {
     /// <summary>
     /// Handler of each macro feature

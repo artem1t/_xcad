@@ -8,10 +8,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Enums;
-using Xarial.XCad.Structures;
+using Xarial.XCad.UI.PropertyPage.Enums;
+using Xarial.XCad.UI.PropertyPage.Structures;
 
-namespace Xarial.XCad.Delegates
+namespace Xarial.XCad.UI.PropertyPage.Delegates
 {
     public delegate void PageClosingDelegate(PageCloseReasons_e reason, PageClosingArg arg);
 }

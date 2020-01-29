@@ -6,10 +6,10 @@
 //*********************************************************************
 
 using System;
-using Xarial.XCad.Enums;
-using Xarial.XCad.Utils.PageBuilder.Base;
+using Xarial.XCad.UI.PropertyPage.Base;
+using Xarial.XCad.UI.PropertyPage.Enums;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.UI.PropertyPage.Attributes
 {
     /// <summary>
     /// Provides additional options for the drop-down list box

@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Xarial.XCad.Structures
+namespace Xarial.XCad.Documents.Structures
 {
     public class DocumentOpenArgs
     {

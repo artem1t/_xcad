@@ -8,10 +8,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Delegates;
-using Xarial.XCad.Structures;
+using Xarial.XCad.UI.Commands.Delegates;
+using Xarial.XCad.UI.Commands.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.UI.Commands
 {
     public interface IXCommandBar
     {

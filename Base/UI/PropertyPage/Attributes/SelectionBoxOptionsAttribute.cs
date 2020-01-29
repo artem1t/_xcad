@@ -10,11 +10,11 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using Xarial.XCad.Enums;
-using Xarial.XCad.Services;
-using Xarial.XCad.Utils.PageBuilder.Base;
+using Xarial.XCad.Base.Enums;
+using Xarial.XCad.UI.PropertyPage.Base;
+using Xarial.XCad.UI.PropertyPage.Enums;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.UI.PropertyPage.Attributes
 {
     /// <summary>
     /// Additional options for selection box control

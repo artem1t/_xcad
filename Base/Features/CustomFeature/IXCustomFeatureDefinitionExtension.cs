@@ -8,9 +8,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
+using Xarial.XCad.Annotations;
+using Xarial.XCad.Geometry.Structures;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Features.CustomFeature
 {
     public static class IXCustomFeatureDefinitionExtension
     {

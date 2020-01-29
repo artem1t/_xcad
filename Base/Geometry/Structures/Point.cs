@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Xarial.XCad.Structures
+namespace Xarial.XCad.Geometry.Structures
 {
     /// <summary>
     /// Structure representing 3D point

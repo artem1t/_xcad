@@ -7,9 +7,9 @@
 
 using System;
 using System.Drawing;
-using Xarial.XCad.Utils.Reflection;
+using Xarial.XCad.Reflection;
 
-namespace Xarial.XCad.Attributes
+namespace Xarial.XCad.Base.Attributes
 {
     /// <summary>
     /// General icon for any controls or objects

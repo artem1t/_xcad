@@ -5,7 +5,7 @@
 //License: https://github.com/xarial/xcad/blob/master/LICENSE
 //*********************************************************************
 
-namespace Xarial.XCad.Utils.PageBuilder.Base.Attributes
+namespace Xarial.XCad.UI.PropertyPage.Base
 {
     public interface IControlTagAttribute : IAttribute
     {

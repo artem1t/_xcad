@@ -8,9 +8,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Structures;
 
-namespace Xarial.XCad.Extensions
+namespace Xarial.XCad.UI.Commands.Structures
 {
     internal class EnumCommandBarSpec : CommandBarSpec
     {

@@ -8,9 +8,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Enums;
+using Xarial.XCad.Features.CustomFeature;
 
-namespace Xarial.XCad
+namespace Xarial.XCad.Features
 {
     public interface IXFeatureCollection : IEnumerable<IXFeature>
     {

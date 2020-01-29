@@ -8,8 +8,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xarial.XCad.Annotations;
+using Xarial.XCad.Documents;
+using Xarial.XCad.Geometry;
 
-namespace Xarial.XCad.Services
+namespace Xarial.XCad.Features.CustomFeature.Services
 {
     /// <summary>
     /// Mechanism allowing to support backward compatibility of the macro feature parameters across the versions.
