@@ -14,7 +14,7 @@ using static Xarial.XCad.UI.Commands.IXCommandManagerExtension;
 
 namespace Xarial.XCad.UI.Commands.Structures
 {
-    public interface IEnumCommandBar<TCmdEnum> : IXCommandBar
+    public interface IEnumCommandBar<TCmdEnum> : IXCommandGroup
         where TCmdEnum : Enum
     {
         new event CommandEnumClickDelegate<TCmdEnum> CommandClick;
@@ -74,13 +74,13 @@ namespace Xarial.XCad.UI.Commands.Structures
             }
         }
 
-        private readonly IXCommandBar m_CmdBar;
+        private readonly IXCommandGroup m_CmdBar;
         private CommandEnumClickDelegate<TCmdEnum> m_CommandClick;
         private CommandEnumStateDelegate<TCmdEnum> m_CommandState;
 
         public CommandBarSpec Spec => m_CmdBar.Spec;
 
-        internal EnumCommandBar(IXCommandBar cmdBar)
+        internal EnumCommandBar(IXCommandGroup cmdBar)
         {
             m_CmdBar = cmdBar;
 

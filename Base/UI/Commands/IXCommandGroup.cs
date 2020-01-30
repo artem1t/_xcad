@@ -13,7 +13,7 @@ using Xarial.XCad.UI.Commands.Structures;
 
 namespace Xarial.XCad.UI.Commands
 {
-    public interface IXCommandBar
+    public interface IXCommandGroup
     {
         event CommandClickDelegate CommandClick;
         event CommandStateDelegate CommandStateResolve;

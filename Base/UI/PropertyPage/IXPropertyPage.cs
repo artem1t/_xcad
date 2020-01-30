@@ -12,7 +12,7 @@ using Xarial.XCad.UI.PropertyPage.Delegates;
 
 namespace Xarial.XCad.UI.PropertyPage
 {
-    public interface IXNativePage<TDataModel>
+    public interface IXPropertyPage<TDataModel>
     {
         /// <summary>
         /// Fired when the data is changed (i.e. text box changed, combobox selection changed etc.)

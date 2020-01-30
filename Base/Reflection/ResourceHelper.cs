@@ -6,6 +6,8 @@
 //*********************************************************************
 
 using System;
+using System.Drawing;
+using System.IO;
 using System.Reflection;
 
 namespace Xarial.XCad.Reflection
@@ -26,7 +28,22 @@ namespace Xarial.XCad.Reflection
         /// <remarks>Use nameof operator to get the resource name avoiding using the 'magic' strings</remarks>
         public static T GetResource<T>(Type resType, string resName)
         {
-            return (T)GetValue(null, resType, resName.Split('.'));
+            var val = GetValue(null, resType, resName.Split('.'));
+
+            if (val is byte[] && typeof(Image) == typeof(T)) 
+            {
+                val = FromBytes(val as byte[]);
+            }
+
+            return (T)val;
+        }
+
+        public static Image FromBytes(byte[] buffer) 
+        {
+            using (var ms = new MemoryStream(buffer))
+            {
+                return Image.FromStream(ms);
+            }
         }
 
         private static object GetValue(object obj, Type type, string[] prpsPath)

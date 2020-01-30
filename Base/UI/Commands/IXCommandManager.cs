@@ -14,7 +14,7 @@ namespace Xarial.XCad.UI.Commands
 {
     public interface IXCommandManager
     {
-        IEnumerable<IXCommandBar> CommandBars { get; }
-        IXCommandBar AddCommandBar(CommandBarSpec cmdBar);
+        IEnumerable<IXCommandGroup> CommandGroups { get; }
+        IXCommandGroup AddCommandBar(CommandBarSpec cmdBar);
     }
 }

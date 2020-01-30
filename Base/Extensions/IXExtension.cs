@@ -23,7 +23,7 @@ namespace Xarial.XCad.Extensions
         IXApplication Application { get; }
         IXCommandManager CommandManager { get; }
 
-        IXNativePage<TData> CreatePage<TData>();
+        IXPropertyPage<TData> CreatePage<TData>();
 
         IXCustomFeatureEditor<TData, TPage> CreateCustomFeatureEditor<TData, TPage>(Type defType,
             DataConverterDelegate<TPage, TData> pageToDataConv, DataConverterDelegate<TData, TPage> dataToPageConv,

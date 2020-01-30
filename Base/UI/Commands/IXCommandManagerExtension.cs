@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using Xarial.XCad.Base.Attributes;
 using Xarial.XCad.Extensions;
+using Xarial.XCad.Properties;
 using Xarial.XCad.Reflection;
 using Xarial.XCad.UI.Commands.Attributes;
 using Xarial.XCad.UI.Commands.Enums;
@@ -37,9 +38,9 @@ namespace Xarial.XCad.UI.Commands
         {
             int GetNextAvailableGroupId()
             {
-                if (cmdMgr.CommandBars.Any())
+                if (cmdMgr.CommandGroups.Any())
                 {
-                    return cmdMgr.CommandBars.Max(g => g.Spec.Id) + 1;
+                    return cmdMgr.CommandGroups.Max(g => g.Spec.Id) + 1;
                 }
                 else
                 {
@@ -47,7 +48,7 @@ namespace Xarial.XCad.UI.Commands
                 }
             }
 
-            var barSpec = CreateCommandBar<TCmdEnum>(GetNextAvailableGroupId(), cmdMgr.CommandBars.Select(c => c.Spec));
+            var barSpec = CreateCommandBar<TCmdEnum>(GetNextAvailableGroupId(), cmdMgr.CommandGroups.Select(c => c.Spec));
 
             var bar = cmdMgr.AddCommandBar(barSpec);
 
@@ -94,8 +95,7 @@ namespace Xarial.XCad.UI.Commands
 
             if (!cmdEnum.TryGetAttribute<IconAttribute>(a => cmd.Icon = a.Icon))
             {
-                //TODO: load default icon
-                cmd.Icon = null;
+                cmd.Icon = Defaults.Icon;
             }
 
             return cmd;
@@ -147,8 +147,7 @@ namespace Xarial.XCad.UI.Commands
 
             if (!cmdGroupType.TryGetAttribute<IconAttribute>(a => bar.Icon = a.Icon))
             {
-                //TODO: load default icon
-                bar.Icon = null;
+                bar.Icon = Defaults.Icon;
             }
 
             if (!cmdGroupType.TryGetAttribute<DisplayNameAttribute>(a => bar.Title = a.DisplayName))
