@@ -11,7 +11,7 @@ using System.Drawing;
 using System.Text;
 using Xarial.XCad.Geometry.Structures;
 
-namespace Xarial.XCad.Documents.Drawings
+namespace Xarial.XCad.Documents
 {
     public interface IXView
     {

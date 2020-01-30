@@ -5,7 +5,6 @@
 //License: https://github.com/xarial/xcad/blob/master/LICENSE
 //*********************************************************************
 
-using Xarial.XCad.Documents.Drawings;
 using Xarial.XCad.Geometry.Structures;
 
 namespace Xarial.XCad.Documents
