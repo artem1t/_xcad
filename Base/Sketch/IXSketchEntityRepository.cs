@@ -5,13 +5,14 @@
 //License: https://github.com/xarial/xcad/blob/master/LICENSE
 //*********************************************************************
 
-using Xarial.XCad.Sketch;
+using System.Collections.Generic;
+using Xarial.XCad.Base;
 
-namespace Xarial.XCad.Features
+namespace Xarial.XCad.Sketch
 {
-    public interface IXSketchBase : IXFeature 
+    public interface IXSketchEntityRepository : IXRepository<IXSketchEntity>
     {
-        bool IsEditing { get; set; }
-        IXSketchEntityRepository Entities { get; }
+        IXSketchLine NewLine();
+        IXSketchPoint NewPoint();
     }
 }

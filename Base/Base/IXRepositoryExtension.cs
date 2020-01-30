@@ -5,17 +5,17 @@
 //License: https://github.com/xarial/xcad/blob/master/LICENSE
 //*********************************************************************
 
+using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace Xarial.XCad.Sketch
+namespace Xarial.XCad.Base
 {
-    public interface IXSketchEntityCollection : IEnumerable<IXSketchEntity>
+    public static class IXRepositoryExtension
     {
-        int Count { get; }
-
-        void AddRange(IEnumerable<IXSketchEntity> segments);
-
-        IXSketchLine NewLine();
-        IXSketchPoint NewPoint();
+        public static void Add<TEnt>(this IXRepository<TEnt> repo, params TEnt[] ents)
+        {
+            repo.AddRange(ents);
+        }
     }
 }

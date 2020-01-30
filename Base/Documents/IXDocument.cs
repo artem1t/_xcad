@@ -19,6 +19,6 @@ namespace Xarial.XCad.Documents
         string Title { get; }
         string Path { get; }
         void Close();
-        IXFeatureCollection Features { get; }
+        IXFeatureRepository Features { get; }
     }
 }

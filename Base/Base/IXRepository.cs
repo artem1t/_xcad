@@ -8,20 +8,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xarial.XCad.Features.CustomFeature;
 
-namespace Xarial.XCad.Features
+namespace Xarial.XCad.Base
 {
-    public interface IXFeatureCollection : IEnumerable<IXFeature>
+    public interface IXRepository<TEnt> : IEnumerable<TEnt>
     {
         int Count { get; }
-
-        void AddRange(IEnumerable<IXFeature> feats);
-
-        IXCustomFeature<TParams> NewCustomFeature<TParams>()
-            where TParams : class, new();
-
-        IXSketch2D New2DSketch();
-        IXSketch3D New3DSketch();
+        void AddRange(IEnumerable<TEnt> ents);
+        void RemoveRange(IEnumerable<TEnt> ents);
     }
 }
