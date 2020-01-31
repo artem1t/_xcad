@@ -6,7 +6,6 @@
     <authors>Xarial</authors>
     <owners>Xarial</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license type="expression">MIT</license>
     <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
     <projectUrl>https://xcad.net/</projectUrl>
     <description>Package Description</description>
