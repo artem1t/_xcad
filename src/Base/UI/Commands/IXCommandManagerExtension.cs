@@ -84,7 +84,7 @@ namespace Xarial.XCad.UI.Commands
             if (!cmdEnum.TryGetAttribute<DisplayNameAttribute>(
                 att => cmd.Title = att.DisplayName))
             {
-                cmd.Title = cmd.ToString();
+                cmd.Title = cmdEnum.ToString();
             }
 
             if (!cmdEnum.TryGetAttribute<DescriptionAttribute>(
