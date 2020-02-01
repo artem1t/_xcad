@@ -37,6 +37,7 @@ steps:
     configuration: '$(BuildConfiguration)'
 
 - task: DownloadSecureFile@1
+  name: Certificate
   displayName: 'Download code signing certificate'
   inputs:
     secureFile: xarial.snk
