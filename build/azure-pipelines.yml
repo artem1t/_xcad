@@ -42,6 +42,7 @@ steps:
   displayName: 'Download code signing certificate'
   inputs:
     secureFile: xarial.snk
+    retryCount: 5
 
 - task: VSBuild@1
   displayName: 'Build and pack project'
