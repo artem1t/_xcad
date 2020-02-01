@@ -23,7 +23,7 @@ steps:
 - task: VSBuild@1
   displayName: 'Build test projects'
   inputs:
-    solution: '**\tests\*.csproj'
+    solution: '**\tests\**\*.csproj'
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
     
