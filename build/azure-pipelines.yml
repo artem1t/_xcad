@@ -3,7 +3,7 @@ trigger:
 - master
 
 pool:
-  name: Azure Pipelines
+  name: 'Azure Pipelines'
   vmImage: windows-latest
   demands:
   - msbuild
