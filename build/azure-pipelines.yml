@@ -4,6 +4,7 @@ trigger:
 
 pool:
   name: 'Azure Pipelines'
+  isHosted: true
   vmImage: windows-latest
   demands:
   - msbuild
