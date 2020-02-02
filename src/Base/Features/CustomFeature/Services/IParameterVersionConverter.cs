@@ -2,12 +2,11 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Xarial.XCad.Annotations;
 using Xarial.XCad.Documents;
 using Xarial.XCad.Geometry;
@@ -18,7 +17,7 @@ namespace Xarial.XCad.Features.CustomFeature.Services
     /// Mechanism allowing to support backward compatibility of the macro feature parameters across the versions.
     /// This interface is coupled with <see cref="Attributes.ParametersVersionAttribute"/>
     /// </summary>
-    /// <remarks>This class is a dictionary of version and the appropriate converter from the previous version to 
+    /// <remarks>This class is a dictionary of version and the appropriate converter from the previous version to
     /// the specified one. Use <see cref="ParametersVersionConverter"/> for the specific implementation</remarks>
     public interface IParametersVersionConverter : IDictionary<Version, IParameterConverter>
     {

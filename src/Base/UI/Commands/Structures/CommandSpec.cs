@@ -2,11 +2,9 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
-using System.ComponentModel;
-using System;
 using System.Drawing;
 using Xarial.XCad.UI.Commands.Enums;
 

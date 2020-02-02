@@ -11,9 +11,16 @@
     <Authors>Xarial</Authors>
     <Product>xCAD</Product>
     <Copyright>© 2020 Xarial Pty Limited</Copyright>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://xcad.net</PackageProjectUrl>
     <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+    <Company>Xarial Pty Limited</Company>
+    <RepositoryUrl>https://github.com/xarial/xcad</RepositoryUrl>
+    <PackageTags>cad,solidworks</PackageTags>
+    <Description>Framework for developing CAD applications</Description>
+    <RepositoryType>git</RepositoryType>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageIconUrl>https://xcad.xarial.com/icon.png</PackageIconUrl>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
@@ -33,6 +40,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\data\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -2,12 +2,10 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xarial.XCad.Documents;
 
 namespace Xarial.XCad.Features.CustomFeature
@@ -21,6 +19,6 @@ namespace Xarial.XCad.Features.CustomFeature
     public interface IXCustomFeature<TParams> : IXCustomFeature
         where TParams : class, new()
     {
-        TParams Parameters { get; set; }        
+        TParams Parameters { get; set; }
     }
 }

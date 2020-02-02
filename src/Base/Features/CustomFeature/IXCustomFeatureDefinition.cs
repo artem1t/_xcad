@@ -2,12 +2,9 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xarial.XCad.Annotations;
 using Xarial.XCad.Documents;
 using Xarial.XCad.Features.CustomFeature.Delegates;
@@ -36,7 +33,7 @@ namespace Xarial.XCad.Features.CustomFeature
         /// <param name="app">Pointer to the SOLIDWORKS application</param>
         /// <param name="model">Pointer to the document where the macro feature being rebuild</param>
         /// <param name="feature">Pointer to the feature</param>
-        /// <returns>Result of the operation. Use static methods of <see cref="MacroFeatureRebuildResult"/>
+        /// <returns>Result of the operation. Use static methods of <see cref="Structures.CustomFeatureRebuildResult"/>
         /// class to generate results</returns>
         CustomFeatureRebuildResult OnRebuild(IXApplication app, IXDocument model, IXCustomFeature feature);
 
@@ -54,7 +51,7 @@ namespace Xarial.XCad.Features.CustomFeature
     public interface IXCustomFeatureDefinition<TParams> : IXCustomFeatureDefinition
         where TParams : class, new()
     {
-        CustomFeatureRebuildResult OnRebuild(IXApplication app, IXDocument model, IXCustomFeature feature, 
+        CustomFeatureRebuildResult OnRebuild(IXApplication app, IXDocument model, IXCustomFeature feature,
             TParams parameters, out AlignDimensionDelegate<TParams> alignDim);
 
         void AlignDimension(IXDimension dim, Point[] pts, Vector dir, Vector extDir);

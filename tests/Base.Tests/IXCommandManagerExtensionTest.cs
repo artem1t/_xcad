@@ -7,7 +7,7 @@ namespace Base.Tests
 {
     public class IXCommandManagerExtensionTest
     {
-        public enum Commands1_e 
+        public enum Commands1_e
         {
             Cmd1,
             Cmd2
@@ -16,12 +16,12 @@ namespace Base.Tests
         [Test]
         public void TestAddCommandGroup()
         {
-            CommandBarSpec res = null;
+            CommandGroupSpec res = null;
 
             var mock = new Mock<IXCommandManager>();
 
-            mock.Setup(m => m.AddCommandBar(It.IsAny<CommandBarSpec>()))
-                .Callback((CommandBarSpec s) =>
+            mock.Setup(m => m.AddCommandBar(It.IsAny<CommandGroupSpec>()))
+                .Callback((CommandGroupSpec s) =>
                 {
                     res = s;
                 }).Returns(new Mock<IXCommandGroup>().Object);

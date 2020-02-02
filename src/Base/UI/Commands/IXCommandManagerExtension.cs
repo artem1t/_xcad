@@ -2,17 +2,14 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using Xarial.XCad.Base.Attributes;
-using Xarial.XCad.Extensions;
-using Xarial.XCad.Properties;
 using Xarial.XCad.Reflection;
 using Xarial.XCad.UI.Commands.Attributes;
 using Xarial.XCad.UI.Commands.Enums;
@@ -52,7 +49,7 @@ namespace Xarial.XCad.UI.Commands
 
             var bar = cmdMgr.AddCommandBar(barSpec);
 
-            return new EnumCommandBar<TCmdEnum>(bar);
+            return new EnumCommandGroup<TCmdEnum>(bar);
         }
 
         private static EnumCommandSpec<TCmdEnum> CreateCommand<TCmdEnum>(TCmdEnum cmdEnum)
@@ -61,7 +58,7 @@ namespace Xarial.XCad.UI.Commands
             var cmd = new EnumCommandSpec<TCmdEnum>(cmdEnum);
 
             cmd.UserId = Convert.ToInt32(cmdEnum);
-            
+
             if (!cmdEnum.TryGetAttribute<CommandItemInfoAttribute>(
                 att =>
                 {
@@ -79,7 +76,7 @@ namespace Xarial.XCad.UI.Commands
                 cmd.TabBoxStyle = RibbonTabTextDisplay_e.TextBelow;
             }
 
-            cmd.HasSpacer = cmdEnum.TryGetAttribute<CommandSpacerAttribute>(x=> { });
+            cmd.HasSpacer = cmdEnum.TryGetAttribute<CommandSpacerAttribute>(x => { });
 
             if (!cmdEnum.TryGetAttribute<DisplayNameAttribute>(
                 att => cmd.Title = att.DisplayName))
@@ -101,16 +98,16 @@ namespace Xarial.XCad.UI.Commands
             return cmd;
         }
 
-        private static EnumCommandBarSpec CreateCommandBar<TCmdEnum>(int nextGroupId, IEnumerable<CommandBarSpec> groups)
+        private static EnumCommandGroupSpec CreateCommandBar<TCmdEnum>(int nextGroupId, IEnumerable<CommandGroupSpec> groups)
                                     where TCmdEnum : Enum
         {
             var cmdGroupType = typeof(TCmdEnum);
 
-            var bar = new EnumCommandBarSpec(cmdGroupType);
+            var bar = new EnumCommandGroupSpec(cmdGroupType);
 
-            CommandBarInfoAttribute grpInfoAtt = null;
+            CommandGroupInfoAttribute grpInfoAtt = null;
 
-            if (cmdGroupType.TryGetAttribute<CommandBarInfoAttribute>(x => grpInfoAtt = x))
+            if (cmdGroupType.TryGetAttribute<CommandGroupInfoAttribute>(x => grpInfoAtt = x))
             {
                 if (grpInfoAtt.UserId != -1)
                 {
@@ -123,7 +120,7 @@ namespace Xarial.XCad.UI.Commands
 
                 if (grpInfoAtt.ParentGroupType != null)
                 {
-                    var parentGrpSpec = groups.OfType<EnumCommandBarSpec>()
+                    var parentGrpSpec = groups.OfType<EnumCommandGroupSpec>()
                         .FirstOrDefault(g => g.CmdGrpEnumType == grpInfoAtt.ParentGroupType);
 
                     if (parentGrpSpec == null)

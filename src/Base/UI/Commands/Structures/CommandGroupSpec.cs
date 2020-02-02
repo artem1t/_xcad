@@ -2,17 +2,16 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
-using System.ComponentModel;
 using System.Drawing;
 
 namespace Xarial.XCad.UI.Commands.Structures
 {
-    public class CommandBarSpec
+    public class CommandGroupSpec
     {
-        public CommandBarSpec Parent { get; set; }
+        public CommandGroupSpec Parent { get; set; }
         public string Title { get; set; }
         public string Tooltip { get; set; }
         public Image Icon { get; set; }

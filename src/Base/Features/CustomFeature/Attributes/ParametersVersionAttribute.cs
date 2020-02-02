@@ -2,7 +2,7 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
 using System;
@@ -12,7 +12,7 @@ namespace Xarial.XCad.Features.CustomFeature.Attributes
 {
     /// <summary>
     /// Attributes specifies the current version of the macro feature parameters data model.
-    /// This allows to implement backward compatibility for the macro feature parameters 
+    /// This allows to implement backward compatibility for the macro feature parameters
     /// for future versions of macro feature
     /// </summary>
     public class ParametersVersionAttribute : Attribute
@@ -25,7 +25,7 @@ namespace Xarial.XCad.Features.CustomFeature.Attributes
         /// </summary>
         /// <param name="major">Major version</param>
         /// <param name="minor">Minor version</param>
-        /// <param name="versionConverterType">Type of the parameters converter between versions which implements 
+        /// <param name="versionConverterType">Type of the parameters converter between versions which implements
         /// <see cref="IParametersVersionConverter"/> interface</param>
         public ParametersVersionAttribute(int major, int minor, Type versionConverterType)
             : this(versionConverterType)

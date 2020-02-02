@@ -2,7 +2,7 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
 using System;
@@ -30,7 +30,7 @@ namespace Xarial.XCad.Reflection
         {
             var val = GetValue(null, resType, resName.Split('.'));
 
-            if (val is byte[] && typeof(Image) == typeof(T)) 
+            if (val is byte[] && typeof(Image) == typeof(T))
             {
                 val = FromBytes(val as byte[]);
             }
@@ -38,7 +38,7 @@ namespace Xarial.XCad.Reflection
             return (T)val;
         }
 
-        public static Image FromBytes(byte[] buffer) 
+        public static Image FromBytes(byte[] buffer)
         {
             using (var ms = new MemoryStream(buffer))
             {

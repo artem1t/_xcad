@@ -2,7 +2,7 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
 using System;
@@ -41,7 +41,7 @@ namespace Xarial.XCad.UI.Commands.Attributes
 
         /// <inheritdoc cref="CommandItemInfoAttribute(bool, bool, WorkspaceTypes_e)"/>
         /// <param name="showInCmdTabBox">Indicates that this command should be added to command tab box in command manager (ribbon)</param>
-        /// <param name="textStyle">Text display type for command in command tab box as defined in <see href="https://help.solidworks.com/2012/English/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swCommandTabButtonTextDisplay_e.html?id=3d6975f51c4648378ad4beaf4d3144ca">swCommandTabButtonTextDisplay_e Enumeration</see>.
+        /// <param name="textStyle">Text display type for command in command tab box</see>.
         /// This option is applicable when 'showInCmdTabBox' is set to true</param>
         public CommandItemInfoAttribute(bool hasMenu, bool hasToolbar, WorkspaceTypes_e suppWorkspaces,
             bool showInCmdTabBox, RibbonTabTextDisplay_e textStyle = RibbonTabTextDisplay_e.TextBelow)

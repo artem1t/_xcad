@@ -2,19 +2,16 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
-using System;
-using System.Collections.Generic;
 using System.Numerics;
-using System.Text;
 
 namespace Xarial.XCad.Geometry.Structures
 {
     public static class TransformMatrixExtension
     {
-        public static Matrix4x4 ToMatrix4x4(this TransformMatrix transform) 
+        public static Matrix4x4 ToMatrix4x4(this TransformMatrix transform)
         {
             return new Matrix4x4(
                 (float)transform.M11, (float)transform.M12, (float)transform.M13, (float)transform.M14,

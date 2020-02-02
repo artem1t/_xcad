@@ -2,17 +2,13 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
-
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Xarial.XCad.UI.PropertyPage.Structures
 {
     /// <summary>
-    /// Represents the parameter of <see cref="PropertyManagerPageHandlerEx.Closing"/> notification
+    /// Represents the parameter of <see cref="IXPropertyPage{TDataModel}.Closing"/> notification
     /// </summary>
     /// <remarks>If <see cref="Cancel"/> parameter is set to true and <see cref="ErrorTitle"/>
     /// and <see cref="ErrorMessage"/> are not empty. Framework will display the error popup box

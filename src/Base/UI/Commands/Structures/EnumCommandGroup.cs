@@ -2,13 +2,11 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using Xarial.XCad.UI.Commands.Delegates;
 using static Xarial.XCad.UI.Commands.IXCommandManagerExtension;
 
@@ -18,10 +16,11 @@ namespace Xarial.XCad.UI.Commands.Structures
         where TCmdEnum : Enum
     {
         new event CommandEnumClickDelegate<TCmdEnum> CommandClick;
+
         new event CommandEnumStateDelegate<TCmdEnum> CommandStateResolve;
     }
 
-    internal class EnumCommandBar<TCmdEnum> : IEnumCommandBar<TCmdEnum>
+    internal class EnumCommandGroup<TCmdEnum> : IEnumCommandBar<TCmdEnum>
                 where TCmdEnum : Enum
     {
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
@@ -78,9 +77,9 @@ namespace Xarial.XCad.UI.Commands.Structures
         private CommandEnumClickDelegate<TCmdEnum> m_CommandClick;
         private CommandEnumStateDelegate<TCmdEnum> m_CommandState;
 
-        public CommandBarSpec Spec => m_CmdBar.Spec;
+        public CommandGroupSpec Spec => m_CmdBar.Spec;
 
-        internal EnumCommandBar(IXCommandGroup cmdBar)
+        internal EnumCommandGroup(IXCommandGroup cmdBar)
         {
             m_CmdBar = cmdBar;
 

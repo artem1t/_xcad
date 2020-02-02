@@ -2,12 +2,10 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Xarial.XCad.Extensions.Attributes
 {
@@ -15,11 +13,11 @@ namespace Xarial.XCad.Extensions.Attributes
     {
         public bool Skip { get; private set; }
 
-        public SkipRegistrationAttribute() : this(true) 
+        public SkipRegistrationAttribute() : this(true)
         {
         }
 
-        public SkipRegistrationAttribute(bool skip) 
+        public SkipRegistrationAttribute(bool skip)
         {
             Skip = skip;
         }

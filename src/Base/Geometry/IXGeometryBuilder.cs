@@ -2,12 +2,9 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xarial.XCad.Geometry.Structures;
 
 namespace Xarial.XCad.Geometry
@@ -17,7 +14,7 @@ namespace Xarial.XCad.Geometry
         IXBody CreateBox(Point center, Vector dir, Vector refDir,
             double width, double length, double height);
 
-        IXBody CreateCylinder(Point center, Vector axis, Vector refDir, 
+        IXBody CreateCylinder(Point center, Vector axis, Vector refDir,
             double radius, double height);
 
         IXBody CreateCone(Point center, Vector axis, Vector refDir,

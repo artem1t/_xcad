@@ -2,12 +2,10 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Xarial.XCad.UI.Commands.Structures;
 
 namespace Xarial.XCad.UI.Commands
@@ -15,6 +13,7 @@ namespace Xarial.XCad.UI.Commands
     public interface IXCommandManager
     {
         IEnumerable<IXCommandGroup> CommandGroups { get; }
-        IXCommandGroup AddCommandBar(CommandBarSpec cmdBar);
+
+        IXCommandGroup AddCommandBar(CommandGroupSpec cmdBar);
     }
 }

@@ -2,7 +2,7 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
 using System;
@@ -16,14 +16,14 @@ namespace Xarial.XCad.UI.PropertyPage.Attributes
     /// </summary>
     /// <remarks>Must be applied to the property of <see cref="Enum"/></remarks>
     public class ComboBoxOptionsAttribute : Attribute, IAttribute
-    {   
+    {
         public ComboBoxStyle_e Style { get; private set; }
 
         /// <summary>
         /// Constructor for specifying style of combo box
         /// </summary>
         /// <param name="style">Specific style applied for combo box control.
-        /// 
+        ///
         public ComboBoxOptionsAttribute(ComboBoxStyle_e style = 0)
         {
             Style = style;

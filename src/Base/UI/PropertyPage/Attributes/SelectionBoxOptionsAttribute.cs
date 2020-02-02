@@ -2,14 +2,11 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using Xarial.XCad.Base.Enums;
 using Xarial.XCad.UI.PropertyPage.Base;
 using Xarial.XCad.UI.PropertyPage.Enums;
@@ -34,7 +31,7 @@ namespace Xarial.XCad.UI.PropertyPage.Attributes
         /// <param name="style">Selection box style</param>
         /// <param name="selColor">Color of the selections in this selection box</param>
         public SelectionBoxOptionsAttribute(
-            SelectionBoxStyle_e style =  SelectionBoxStyle_e.None,
+            SelectionBoxStyle_e style = SelectionBoxStyle_e.None,
             KnownColor selColor = 0) : this(-1, null, style, selColor)
         {
         }

@@ -2,12 +2,8 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
-
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Xarial.XCad.Geometry.Structures
 {
@@ -34,7 +30,7 @@ namespace Xarial.XCad.Geometry.Structures
             RightTopBack
         };
 
-        public Box3D(double minX, double minY, double minZ, double maxX, double maxY, double maxZ) 
+        public Box3D(double minX, double minY, double minZ, double maxX, double maxY, double maxZ)
         {
             LeftBottomBack = new Point(minX, minY, minZ);
             LeftBottomFront = new Point(minX, minY, maxZ);

@@ -2,7 +2,7 @@
 //xCAD
 //Copyright(C) 2020 Xarial Pty Limited
 //Product URL: https://www.xcad.net
-//License: https://github.com/xarial/xcad/blob/master/LICENSE
+//License: https://xcad.xarial.com/license/
 //*********************************************************************
 
 using System;
@@ -13,7 +13,7 @@ namespace Xarial.XCad.UI.Commands.Attributes
     /// Provides the additional information about the command group
     /// </summary>
     [AttributeUsage(AttributeTargets.Enum)]
-    public class CommandBarInfoAttribute : Attribute
+    public class CommandGroupInfoAttribute : Attribute
     {
         internal Type ParentGroupType { get; private set; }
         internal int UserId { get; private set; }
@@ -22,20 +22,20 @@ namespace Xarial.XCad.UI.Commands.Attributes
         /// Constructor for specifying the additional information for group
         /// </summary>
         /// <param name="userId">User id for the command group. Must be unique per add-in</param>
-        public CommandBarInfoAttribute(int userId) : this(userId, null)
+        public CommandGroupInfoAttribute(int userId) : this(userId, null)
         {
         }
 
         /// <param name="parentGroupType">Type of the parent group enumeration</param>
-        /// <inheritdoc cref="CommandBarInfoAttribute(int)"/>
+        /// <inheritdoc cref="CommandGroupInfoAttribute(int)"/>
         /// <remarks>This group will be displayed as sub group in the menu and separated in the command tab box</remarks>
-        public CommandBarInfoAttribute(Type parentGroupType) : this(-1, parentGroupType)
+        public CommandGroupInfoAttribute(Type parentGroupType) : this(-1, parentGroupType)
         {
         }
 
-        /// <inheritdoc cref="CommandBarInfoAttribute(int)"/>
-        /// <inheritdoc cref="CommandBarInfoAttribute(Type)"/>
-        public CommandBarInfoAttribute(int userId, Type parentGroupType)
+        /// <inheritdoc cref="CommandGroupInfoAttribute(int)"/>
+        /// <inheritdoc cref="CommandGroupInfoAttribute(Type)"/>
+        public CommandGroupInfoAttribute(int userId, Type parentGroupType)
         {
             UserId = userId;
 
