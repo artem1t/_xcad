@@ -21,22 +21,6 @@ steps:
   inputs:
     restoreSolution: '**\*.sln'
 
-#- task: VSBuild@1
-#  displayName: 'Build test projects'
-#  inputs:
-#    solution: '**\tests\**\*.csproj'
-#    platform: '$(BuildPlatform)'
-#    configuration: '$(BuildConfiguration)'
-    
-#- task: VSTest@2
-#  displayName: 'Unit test'
-#  inputs:
-#    testAssemblyVer2: |
-#     **\$(BuildConfiguration)\**\*tests*.dll
-#     !**\obj\**
-#    platform: '$(BuildPlatform)'
-#    configuration: '$(BuildConfiguration)'
-
 - task: DownloadSecureFile@1
   name: Certificate
   displayName: 'Download code signing certificate'
@@ -59,6 +43,22 @@ steps:
     logProjectEvents: true
     createLogFile: false
     logFileVerbosity: 'normal'
+    
+- task: VSBuild@1
+  displayName: 'Build test projects'
+  inputs:
+    solution: '**\tests\**\*.csproj'
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+    
+- task: VSTest@2
+  displayName: 'Unit test'
+  inputs:
+    testAssemblyVer2: |
+     **\$(BuildConfiguration)\**\*tests*.dll
+     !**\obj\**
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
     
 - task: CopyFiles@2
   displayName: 'Copy Nuget Package'
