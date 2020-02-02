@@ -90,4 +90,4 @@ stages:
         command: 'push'
         packagesToPush: '$(Pipeline.Workspace)/packages/*.nupkg'
         nuGetFeedType: 'internal'
-        publishVstsFeed: 'xcad'
+        publishVstsFeed: 'xarial'
