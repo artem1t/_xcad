@@ -69,7 +69,25 @@ stages:
       - publish: '$(Build.ArtifactStagingDirectory)/packages'
         artifact: 'packages'
 
-      #- task: PublishBuildArtifacts@1
-        #displayName: 'Publish Nuget Package Artifact'
-        #inputs:
-         # PathtoPublish: '$(build.artifactstagingdirectory)'
+- stage: 'PublishPrereleaseNuGetPackage'
+  displayName: 'Publish Prerelease NuGet Package'
+  dependsOn: 'Build'
+  condition: succeeded()
+  jobs:
+  - job:
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+    - checkout: none
+
+    - download: current
+      artifact: 'packages'
+
+    - task: NuGetCommand@2
+      displayName: 'Push NuGet Package'
+      inputs:
+        command: 'push'
+        packagesToPush: '$(Pipeline.Workspace)/packages/*.nupkg'
+        nuGetFeedType: 'internal'
+        publishVstsFeed: 'xcad'
