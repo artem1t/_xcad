@@ -2,62 +2,74 @@ trigger:
 - dev
 - master
 
-pool:
-  name: 'Azure Pipelines'
-  vmImage: windows-latest
-  demands:
-  - msbuild
-  - visualstudio
+stages:
 
-steps:
-- task: NuGetToolInstaller@0
-  displayName: 'Use NuGet 4.4.1'
-  inputs:
-    versionSpec: 4.4.1
+- stage: 'Build'
+  variables:
+    buildConfiguration: 'Release'
+    buildPlatform: 'Any CPU'
 
-- task: NuGetCommand@2
-  displayName: 'NuGet restore'
-  inputs:
-    restoreSolution: '**\*.sln'
+  jobs:
+  - job:
+    pool:
+      name: 'Azure Pipelines'
+      vmImage: windows-latest
+      demands:
+        - msbuild
+        - visualstudio
 
-- task: DownloadSecureFile@1
-  name: Certificate
-  displayName: 'Download code signing certificate'
-  inputs:
-    secureFile: xarial.snk
+    steps:
+      - task: NuGetToolInstaller@0
+        displayName: 'Use NuGet 4.4.1'
+        inputs:
+          versionSpec: 4.4.1
 
-- task: VSBuild@1
-  displayName: 'Build and pack project'
-  inputs:
-    solution: '**\src\**\*.csproj'
-    msbuildArgs: '/t:pack /p:OutputPath=$(system.defaultworkingdirectory);SignAssembly=true;AssemblyOriginatorKeyFile=$(Certificate.secureFilePath);DelaySign=false'
-    platform: '$(BuildPlatform)'
-    configuration: '$(BuildConfiguration)'
-    
-- task: VSBuild@1
-  displayName: 'Build test projects'
-  inputs:
-    solution: '**\tests\**\*.csproj'
-    platform: '$(BuildPlatform)'
-    configuration: '$(BuildConfiguration)'
-    
-- task: VSTest@2
-  displayName: 'Unit test'
-  inputs:
-    testAssemblyVer2: |
-     **\$(BuildConfiguration)\**\*tests*.dll
-     !**\obj\**
-    platform: '$(BuildPlatform)'
-    configuration: '$(BuildConfiguration)'
-    
-- task: CopyFiles@2
-  displayName: 'Copy Nuget Package'
-  inputs:
-    SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: '**\*.nupkg'
-    TargetFolder: '$(build.artifactstagingdirectory)'
-  
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Nuget Package Artifact'
-  inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
+      - task: NuGetCommand@2
+        displayName: 'NuGet restore'
+        inputs:
+          restoreSolution: '**\*.sln'
+
+      - task: DownloadSecureFile@1
+        name: Certificate
+        displayName: 'Download code signing certificate'
+        inputs:
+          secureFile: xarial.snk
+
+      - task: VSBuild@1
+        displayName: 'Build and pack project'
+        inputs:
+          solution: '**\src\**\*.csproj'
+          msbuildArgs: '/t:pack /p:OutputPath=$(System.DefaultWorkingDirectory);SignAssembly=true;AssemblyOriginatorKeyFile=$(Certificate.secureFilePath);DelaySign=false'
+          platform: '$(BuildPlatform)'
+          configuration: '$(BuildConfiguration)'
+            
+      - task: VSBuild@1
+        displayName: 'Build test projects'
+        inputs:
+            solution: '**\tests\**\*.csproj'
+            platform: '$(BuildPlatform)'
+            configuration: '$(BuildConfiguration)'
+            
+      - task: VSTest@2
+        displayName: 'Unit test'
+        inputs:
+          testAssemblyVer2: |
+            **\$(BuildConfiguration)\**\*tests*.dll
+            !**\obj\**
+          platform: '$(BuildPlatform)'
+          configuration: '$(BuildConfiguration)'
+            
+      - task: CopyFiles@2
+        displayName: 'Copy Nuget Package'
+        inputs:
+          SourceFolder: '$(system.defaultworkingdirectory)'
+          Contents: '**\*.nupkg'
+          TargetFolder: '$(Build.ArtifactStagingDirectory)/packages'
+      
+      - publish: '$(Build.ArtifactStagingDirectory)/packages'
+        artifact: 'packages'
+
+      #- task: PublishBuildArtifacts@1
+        #displayName: 'Publish Nuget Package Artifact'
+        #inputs:
+         # PathtoPublish: '$(build.artifactstagingdirectory)'
