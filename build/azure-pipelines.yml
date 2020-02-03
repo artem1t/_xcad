@@ -1,0 +1,12 @@
+trigger:
+- dev
+- master
+
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: xarial/templates
+      
+stages:
+- template: AzureDevOps/library.yml@templates
