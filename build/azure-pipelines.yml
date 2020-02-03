@@ -69,8 +69,8 @@ stages:
       - publish: '$(Build.ArtifactStagingDirectory)/packages'
         artifact: 'packages'
 
-- stage: 'PublishPrereleaseNuGetPackage'
-  displayName: 'Publish Prerelease NuGet Package'
+- stage: 'PublishPreviewNuGetPackage'
+  displayName: 'Publish Prerelease NuGet Package to xarial nuget feed'
   dependsOn: 'Build'
   condition: succeeded()
   jobs:
@@ -91,9 +91,10 @@ stages:
         packagesToPush: '$(Pipeline.Workspace)/packages/*.nupkg'
         nuGetFeedType: 'internal'
         publishVstsFeed: 'xarial'
+        allowPackageConflicts: true
 
-- stage: 'PublishReleaseNuGetPackage'
-  displayName: 'Publish Release NuGet Package'
+- stage: 'PublishProductionPackage'
+  displayName: 'Publish Release NuGet Package to Nuget.org production'
   dependsOn: 'PublishPrereleaseNuGetPackage'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   jobs:
