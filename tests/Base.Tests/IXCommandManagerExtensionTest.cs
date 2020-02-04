@@ -20,7 +20,7 @@ namespace Base.Tests
 
             var mock = new Mock<IXCommandManager>();
 
-            mock.Setup(m => m.AddCommandBar(It.IsAny<CommandGroupSpec>()))
+            mock.Setup(m => m.AddCommandGroup(It.IsAny<CommandGroupSpec>()))
                 .Callback((CommandGroupSpec s) =>
                 {
                     res = s;

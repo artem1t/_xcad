@@ -47,7 +47,7 @@ namespace Xarial.XCad.UI.Commands
 
             var barSpec = CreateCommandBar<TCmdEnum>(GetNextAvailableGroupId(), cmdMgr.CommandGroups.Select(c => c.Spec));
 
-            var bar = cmdMgr.AddCommandBar(barSpec);
+            var bar = cmdMgr.AddCommandGroup(barSpec);
 
             return new EnumCommandGroup<TCmdEnum>(bar);
         }
